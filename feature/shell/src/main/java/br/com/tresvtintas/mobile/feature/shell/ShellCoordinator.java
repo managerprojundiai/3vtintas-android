@@ -4,6 +4,7 @@ import br.com.tresvtintas.mobile.core.bootstrap.BootstrapSnapshot;
 import br.com.tresvtintas.mobile.core.model.AuthorizationSnapshot;
 import br.com.tresvtintas.mobile.core.model.OrganizationAccessMode;
 import br.com.tresvtintas.mobile.core.model.OrganizationScope;
+import java.util.List;
 import java.util.Optional;
 import java.util.OptionalLong;
 
@@ -14,9 +15,11 @@ import java.util.OptionalLong;
 public final class ShellCoordinator {
     private OptionalLong selectedOrganizationId = OptionalLong.empty();
     private Optional<ShellAccessState> current = Optional.empty();
+    private List<OrganizationScope> globalOrganizations = List.of();
 
     public ShellAccessState apply(BootstrapSnapshot bootstrap) {
         AuthorizationSnapshot authorization = bootstrap.authorization();
+        globalOrganizations = List.of();
         ShellAccessState next = switch (authorization.organizationAccessMode()) {
             case ALL -> state(bootstrap, ShellScopeKind.GLOBAL, Optional.empty());
             case NONE -> state(bootstrap, ShellScopeKind.PERSONAL, Optional.empty());
@@ -30,11 +33,14 @@ public final class ShellCoordinator {
         ShellAccessState currentState = current.orElseThrow(() ->
                 new IllegalStateException("Bootstrap must be applied before store selection."));
         AuthorizationSnapshot authorization = currentState.bootstrap().authorization();
-        if (authorization.organizationAccessMode() != OrganizationAccessMode.ASSIGNED
-                || authorization.organizationPageHasMore()) {
+        if (authorization.organizationPageHasMore()) {
             throw new IllegalStateException("Organization selection is not available.");
         }
-        OrganizationScope selected = find(authorization, organizationId)
+        List<OrganizationScope> available = authorization.organizationAccessMode()
+                == OrganizationAccessMode.ALL
+                ? globalOrganizations
+                : authorization.organizations();
+        OrganizationScope selected = find(available, organizationId)
                 .orElseThrow(() -> new IllegalArgumentException(
                         "Organization is not present in the current authorization."));
         selectedOrganizationId = OptionalLong.of(selected.id());
@@ -46,12 +52,31 @@ public final class ShellCoordinator {
         return next;
     }
 
+    /**
+     * Registers the server-authorized organization directory used by a global account.
+     * The bootstrap intentionally does not enumerate organizations for ALL scope, so the
+     * directory is fetched through the protected corporate endpoint before selection.
+     */
+    public void setGlobalOrganizations(List<OrganizationScope> organizations) {
+        ShellAccessState currentState = current.orElseThrow(() ->
+                new IllegalStateException("Bootstrap must be applied before organization directory."));
+        if (currentState.bootstrap().authorization().organizationAccessMode()
+                != OrganizationAccessMode.ALL) {
+            throw new IllegalStateException("Global organization directory is not available.");
+        }
+        if (organizations == null || organizations.stream().anyMatch(java.util.Objects::isNull)) {
+            throw new IllegalArgumentException("Global organization directory is invalid.");
+        }
+        globalOrganizations = List.copyOf(organizations);
+    }
+
     public Optional<ShellAccessState> current() {
         return current;
     }
 
     public void clear() {
         selectedOrganizationId = OptionalLong.empty();
+        globalOrganizations = List.of();
         current = Optional.empty();
     }
 
@@ -104,11 +129,17 @@ public final class ShellCoordinator {
     }
 
     private static Optional<OrganizationScope> find(
-            AuthorizationSnapshot authorization,
+            List<OrganizationScope> organizations,
             long organizationId) {
-        return authorization.organizations().stream()
+        return organizations.stream()
                 .filter(organization -> organization.id() == organizationId)
                 .findFirst();
+    }
+
+    private static Optional<OrganizationScope> find(
+            AuthorizationSnapshot authorization,
+            long organizationId) {
+        return find(authorization.organizations(), organizationId);
     }
 
     private static ShellAccessState state(

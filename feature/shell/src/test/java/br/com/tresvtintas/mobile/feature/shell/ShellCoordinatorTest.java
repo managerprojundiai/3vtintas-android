@@ -122,6 +122,35 @@ public final class ShellCoordinatorTest {
                         OptionalLong.empty())).scopeKind());
     }
 
+    @Test
+    public void globalAccountCanSelectStoreFromProtectedDirectory() {
+        ShellCoordinator coordinator = new ShellCoordinator();
+        ShellAccessState initial = coordinator.apply(snapshot(
+                OrganizationAccessMode.ALL,
+                List.of(),
+                false,
+                OptionalLong.empty()));
+
+        assertEquals(
+                "Global account must start without a selected store.",
+                ShellScopeKind.GLOBAL,
+                initial.scopeKind());
+        coordinator.setGlobalOrganizations(List.of(store(9), store(10)));
+
+        ShellAccessState selected = coordinator.selectOrganization(10);
+        assertEquals(
+                "Selecting a store must enter the selected-store scope.",
+                ShellScopeKind.SELECTED_ORGANIZATION,
+                selected.scopeKind());
+        assertEquals(
+                "The selected store must be retained in shell state.",
+                10,
+                selected.selectedOrganization().orElseThrow().id());
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> coordinator.selectOrganization(99));
+    }
+
     private static BootstrapSnapshot snapshot(
             OrganizationAccessMode mode,
             List<OrganizationScope> organizations,

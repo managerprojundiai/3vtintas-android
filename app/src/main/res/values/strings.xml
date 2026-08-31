@@ -65,6 +65,14 @@
     <string name="shell_change_store_button">Trocar loja</string>
     <string name="shell_refresh_button">Atualizar permissões</string>
     <string name="shell_store_dialog_title">Selecione a loja autorizada</string>
+    <string name="shell_global_store_loading_title">Carregando lojas autorizadas</string>
+    <string name="shell_global_store_loading_message">Estamos consultando as lojas que sua conta pode acessar. Nenhum preço será consultado antes de você escolher uma loja.</string>
+    <string name="shell_global_store_empty_title">Nenhuma loja disponível</string>
+    <string name="shell_global_store_empty_message">Sua conta tem acesso global, mas o servidor não retornou lojas ativas. Atualize as permissões ou fale com o administrador.</string>
+    <string name="shell_global_store_error_title">Não foi possível carregar as lojas</string>
+    <string name="shell_global_store_error_message">Não foi possível consultar as lojas autorizadas agora. Confira a conexão e tente novamente.</string>
+    <string name="shell_catalog_store_required_message">Escolha uma loja para abrir o catálogo. O catálogo não pode consultar preços sem esse contexto.</string>
+    <string name="shell_quotes_store_required_message">Escolha uma loja para abrir os orçamentos de material. O orçamento precisa de uma tabela de preços válida.</string>
     <string name="role_master_admin">Administrador mestre</string>
     <string name="role_manager">Gerente</string>
     <string name="role_salesperson">Vendedor</string>

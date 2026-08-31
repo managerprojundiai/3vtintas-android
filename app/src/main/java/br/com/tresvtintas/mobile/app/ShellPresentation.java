@@ -34,8 +34,11 @@ record ShellPresentation(
                 .orElse("");
         boolean canChoose = state.scopeKind()
                 == ShellScopeKind.REQUIRES_ORGANIZATION_SELECTION;
-        boolean canChange = state.bootstrap().authorization().organizations().size() > 1
-                && !state.bootstrap().authorization().organizationPageHasMore();
+        boolean canChange = state.selectedOrganization().isPresent()
+                && !state.bootstrap().authorization().organizationPageHasMore()
+                && (state.bootstrap().authorization().organizations().size() > 1
+                        || state.bootstrap().authorization().organizationAccessMode()
+                                == br.com.tresvtintas.mobile.core.model.OrganizationAccessMode.ALL);
         return new ShellPresentation(
                 R.string.shell_ready_title,
                 message,
