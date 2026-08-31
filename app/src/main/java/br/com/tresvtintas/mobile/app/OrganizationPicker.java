@@ -21,6 +21,16 @@ final class OrganizationPicker {
         }
         List<OrganizationScope> organizations =
                 access.bootstrap().authorization().organizations();
+        show(context, organizations, onSelected);
+    }
+
+    static void show(
+            Context context,
+            List<OrganizationScope> organizations,
+            LongConsumer onSelected) {
+        if (context == null || organizations == null || onSelected == null) {
+            return;
+        }
         if (organizations.isEmpty()) {
             return;
         }

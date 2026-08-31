@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -22,6 +23,7 @@ import br.com.tresvtintas.mobile.core.bootstrap.BootstrapStateListener;
 import br.com.tresvtintas.mobile.core.bootstrap.ExpectedBootstrapIdentity;
 import br.com.tresvtintas.mobile.core.commission.CommissionScope;
 import br.com.tresvtintas.mobile.core.notifications.NotificationRoute;
+import br.com.tresvtintas.mobile.core.model.OrganizationAccessMode;
 import br.com.tresvtintas.mobile.feature.accountaccess.AccountAccessActivity;
 import br.com.tresvtintas.mobile.feature.agent.AgentConversationListActivity;
 import br.com.tresvtintas.mobile.feature.catalog.CatalogActivity;
@@ -46,6 +48,7 @@ import br.com.tresvtintas.mobile.feature.notifications.NotificationSettingsActiv
 import br.com.tresvtintas.mobile.feature.shell.MobileArea;
 import br.com.tresvtintas.mobile.feature.shell.ShellAccessState;
 import br.com.tresvtintas.mobile.feature.shell.ShellCoordinator;
+import br.com.tresvtintas.mobile.feature.shell.ShellScopeKind;
 import br.com.tresvtintas.mobile.feature.systemconfiguration.SystemConfigurationActivity;
 import br.com.tresvtintas.mobile.feature.whatsappadmin.WhatsAppAdministrationActivity;
 import java.util.EnumSet;
@@ -281,16 +284,65 @@ public final class MainActivity extends AppCompatActivity
     }
 
     private void showOrganizationPicker() {
-        shellAccess.ifPresent(access ->
-                OrganizationPicker.show(this, access, organizationId -> {
-                    ShellAccessState selected =
-                            shellCoordinator.selectOrganization(organizationId);
-                    shellAccess = Optional.of(selected);
-                    Set<MobileArea> enabledAreas = enabledAreas(selected);
-                    applyFeatureAccess(selected, enabledAreas);
-                    primaryAction = renderer.shell(selected);
-                    shellController.render(enabledAreas);
-                }));
+        showOrganizationPicker(() -> { });
+    }
+
+    private void showOrganizationPicker(Runnable afterSelection) {
+        if (afterSelection == null) {
+            return;
+        }
+        shellAccess.ifPresent(access -> {
+            if (access.scopeKind() == ShellScopeKind.ORGANIZATION_ASSIGNMENT_REQUIRED) {
+                showFeatureUnavailable(R.string.shell_assignment_required_message);
+                return;
+            }
+            if (access.scopeKind() == ShellScopeKind.ORGANIZATION_LIST_INCOMPLETE) {
+                showFeatureUnavailable(R.string.shell_incomplete_store_list_message);
+                return;
+            }
+            if (access.bootstrap().authorization().organizationAccessMode()
+                    == OrganizationAccessMode.ALL) {
+                application.corporateFinanceRuntime().ifPresentOrElse(runtime ->
+                        GlobalOrganizationPicker.show(
+                                this,
+                                runtime.organizationRepository(),
+                                runtime.workerExecutor(),
+                                ContextCompat.getMainExecutor(this),
+                                organizations -> {
+                                    shellCoordinator.setGlobalOrganizations(organizations);
+                                    OrganizationPicker.show(
+                                            this,
+                                            organizations,
+                                            organizationId -> selectOrganization(
+                                                    organizationId,
+                                                    afterSelection));
+                                }),
+                        () -> showFeatureUnavailable(
+                                R.string.shell_global_store_error_message));
+                return;
+            }
+            OrganizationPicker.show(this, access, organizationId ->
+                    selectOrganization(organizationId, afterSelection));
+        });
+    }
+
+    private void selectOrganization(
+            long organizationId,
+            Runnable afterSelection) {
+        try {
+            ShellAccessState selected =
+                    shellCoordinator.selectOrganization(organizationId);
+            shellAccess = Optional.of(selected);
+            Set<MobileArea> enabledAreas = enabledAreas(selected);
+            applyFeatureAccess(selected, enabledAreas);
+            primaryAction = renderer.shell(selected);
+            shellController.render(enabledAreas);
+            if (afterSelection != null) {
+                afterSelection.run();
+            }
+        } catch (IllegalArgumentException | IllegalStateException failure) {
+            showFeatureUnavailable(R.string.shell_global_store_error_message);
+        }
     }
 
     @Override
@@ -450,7 +502,11 @@ public final class MainActivity extends AppCompatActivity
     private void openCatalog() {
         if (application.catalogController().isPresent()) {
             startActivity(new Intent(this, CatalogActivity.class));
+            return;
         }
+        openAfterOrganizationSelection(
+                this::openCatalog,
+                R.string.shell_catalog_store_required_message);
     }
 
     private void openDashboard() {
@@ -498,7 +554,38 @@ public final class MainActivity extends AppCompatActivity
     private void openMaterialQuotes() {
         if (application.materialQuoteRuntime().isPresent()) {
             startActivity(new Intent(this, MaterialQuoteListActivity.class));
+            return;
         }
+        openAfterOrganizationSelection(
+                this::openMaterialQuotes,
+                R.string.shell_quotes_store_required_message);
+    }
+
+    private void openAfterOrganizationSelection(
+            Runnable open,
+            int unavailableMessage) {
+        Optional<ShellAccessState> currentAccess = shellAccess;
+        if (currentAccess.isEmpty()) {
+            showFeatureUnavailable(unavailableMessage);
+            return;
+        }
+        ShellAccessState access = currentAccess.orElseThrow();
+        if (!access.isOperational()) {
+            showFeatureUnavailable(unavailableMessage);
+            return;
+        }
+        if (access.selectedOrganization().isEmpty()) {
+            showOrganizationPicker(open);
+            return;
+        }
+        showFeatureUnavailable(unavailableMessage);
+    }
+
+    private void showFeatureUnavailable(int message) {
+        android.widget.Toast.makeText(
+                this,
+                message,
+                android.widget.Toast.LENGTH_LONG).show();
     }
 
     private void openLaborQuotes() {
