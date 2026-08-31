@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="labor_quote_screen_padding">20dp</dimen>
+    <dimen name="labor_quote_space_small">8dp</dimen>
+    <dimen name="labor_quote_space_medium">16dp</dimen>
+</resources>

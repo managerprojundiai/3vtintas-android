@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="catalog_admin_title">Administrar catálogo</string>
+    <string name="catalog_admin_subtitle">Produtos, estoque e conhecimento técnico</string>
+    <string name="catalog_admin_back">Voltar</string>
+    <string name="catalog_admin_refresh">Atualizar catálogo</string>
+    <string name="catalog_admin_create">Novo produto</string>
+    <string name="catalog_admin_create_category">Nova categoria</string>
+    <string name="catalog_admin_search">Buscar produto, SKU ou marca</string>
+    <string name="catalog_admin_apply">Aplicar</string>
+    <string name="catalog_admin_filter_all">Todos</string>
+    <string name="catalog_admin_filter_active">Ativos</string>
+    <string name="catalog_admin_filter_inactive">Inativos</string>
+    <plurals name="catalog_admin_count">
+        <item quantity="one">%1$d produto exibido</item>
+        <item quantity="other">%1$d produtos exibidos</item>
+    </plurals>
+    <string name="catalog_admin_empty">Nenhum produto encontrado com esses filtros.</string>
+    <string name="catalog_admin_load_more">Carregar mais</string>
+    <string name="catalog_admin_product_summary">SKU %1$s · %2$s · estoque %3$d</string>
+    <string name="catalog_admin_price">R$ %1$s</string>
+    <string name="catalog_admin_active">Ativo</string>
+    <string name="catalog_admin_inactive">Inativo</string>
+    <string name="catalog_admin_product_create_title">Novo produto</string>
+    <string name="catalog_admin_product_edit_title">Editar produto</string>
+    <string name="catalog_admin_name">Nome *</string>
+    <string name="catalog_admin_category">Categoria</string>
+    <string name="catalog_admin_no_category">Sem categoria</string>
+    <string name="catalog_admin_price_field">Preço (ex.: 159.90) *</string>
+    <string name="catalog_admin_stock">Estoque *</string>
+    <string name="catalog_admin_sku">SKU</string>
+    <string name="catalog_admin_brand">Marca</string>
+    <string name="catalog_admin_unit">Unidade</string>
+    <string name="catalog_admin_volume">Volume</string>
+    <string name="catalog_admin_description">Descrição</string>
+    <string name="catalog_admin_image_url">URL da imagem</string>
+    <string name="catalog_admin_image_page_url">Página de origem da imagem</string>
+    <string name="catalog_admin_validation">Informe nome, preço no formato 0.00 e estoque não negativo.</string>
+    <string name="catalog_admin_save">Salvar produto</string>
+    <string name="catalog_admin_activate">Ativar produto</string>
+    <string name="catalog_admin_deactivate">Desativar produto</string>
+    <string name="catalog_admin_knowledge">Conhecimento técnico</string>
+    <string name="catalog_admin_status_confirmation_title">Confirmar alteração de status?</string>
+    <string name="catalog_admin_status_confirmation_message">O produto ficará %1$s no catálogo. A operação será auditada.</string>
+    <string name="catalog_admin_category_title">Nova categoria</string>
+    <string name="catalog_admin_category_description">Descrição da categoria</string>
+    <string name="catalog_admin_category_validation">Informe um nome de categoria válido.</string>
+    <string name="catalog_admin_create_category_action">Criar categoria</string>
+    <string name="catalog_admin_knowledge_title">Conhecimento técnico</string>
+    <string name="catalog_admin_save_knowledge">Salvar conhecimento</string>
+    <string name="catalog_admin_source_description">Fonte / referência</string>
+    <string name="catalog_admin_synonyms">Sinônimos, separados por vírgula</string>
+    <string name="catalog_admin_application">Aplicação</string>
+    <string name="catalog_admin_mode_of_use">Modo de uso</string>
+    <string name="catalog_admin_dilution">Diluição</string>
+    <string name="catalog_admin_yield">Rendimento</string>
+    <string name="catalog_admin_intents">Intenções de busca, separadas por vírgula</string>
+    <string name="catalog_admin_sales_argument">Argumento de venda</string>
+    <string name="catalog_admin_questions">Perguntas recomendadas</string>
+    <string name="catalog_admin_avoid_selling">Quando evitar a venda</string>
+    <string name="catalog_admin_whatsapp_reply">Resposta sugerida no WhatsApp</string>
+    <string name="catalog_admin_saved">Alteração salva com auditoria.</string>
+    <string name="catalog_admin_error_session">Sua sessão expirou. Entre novamente.</string>
+    <string name="catalog_admin_error_forbidden">Sua conta não pode administrar o catálogo.</string>
+    <string name="catalog_admin_error_not_found">Esse produto não está mais disponível.</string>
+    <string name="catalog_admin_error_conflict">O produto mudou desde que foi aberto. Atualize e tente novamente.</string>
+    <string name="catalog_admin_error_invalid">Confira os dados informados.</string>
+    <string name="catalog_admin_error_network">Não foi possível concluir agora. Verifique a conexão.</string>
+    <string name="catalog_admin_error_update">Atualize o aplicativo para continuar.</string>
+    <string name="catalog_admin_error_protocol">A resposta do serviço não pôde ser validada.</string>
+    <string name="catalog_import_open">Importar lista CSV ou XLSX</string>
+    <string name="catalog_import_title">Importar catálogo</string>
+    <string name="catalog_import_subtitle">Revise cada alteração antes de aplicar</string>
+    <string name="catalog_import_refresh">Atualizar andamento</string>
+    <string name="catalog_import_select">Selecionar arquivo</string>
+    <string name="catalog_import_upload">Gerar prévia</string>
+    <string name="catalog_import_file_size">%1$d KiB · SHA-256 verificado no aparelho</string>
+    <string name="catalog_import_file_invalid">Selecione um arquivo CSV ou XLSX válido.</string>
+    <string name="catalog_import_file_too_large">O arquivo excede o limite seguro de 5 MiB.</string>
+    <string name="catalog_import_load_more">Carregar mais linhas</string>
+    <string name="catalog_import_row_number">Linha %1$d</string>
+    <string name="catalog_import_row_details">SKU %1$s · R$ %2$s · estoque %3$s · %4$s</string>
+    <string name="catalog_import_action_create">Novo</string>
+    <string name="catalog_import_action_update">Atualizar</string>
+    <string name="catalog_import_action_skip">Ignorar</string>
+    <string name="catalog_import_count_summary">%1$s · %2$s · %3$s</string>
+    <string name="catalog_import_execution_summary">%1$s · %2$s</string>
+    <plurals name="catalog_import_total_lines">
+        <item quantity="one">%1$d linha</item>
+        <item quantity="other">%1$d linhas</item>
+    </plurals>
+    <plurals name="catalog_import_ready_lines">
+        <item quantity="one">%1$d pronta</item>
+        <item quantity="other">%1$d prontas</item>
+    </plurals>
+    <plurals name="catalog_import_invalid_lines">
+        <item quantity="one">%1$d inválida</item>
+        <item quantity="other">%1$d inválidas</item>
+    </plurals>
+    <plurals name="catalog_import_imported_lines">
+        <item quantity="one">%1$d importada</item>
+        <item quantity="other">%1$d importadas</item>
+    </plurals>
+    <plurals name="catalog_import_failed_lines">
+        <item quantity="one">%1$d com falha</item>
+        <item quantity="other">%1$d com falha</item>
+    </plurals>
+    <string name="catalog_import_status_preparing">Preparando prévia segura…</string>
+    <string name="catalog_import_status_preview">Prévia pronta para revisão</string>
+    <string name="catalog_import_status_running">Aplicando alterações auditadas…</string>
+    <string name="catalog_import_status_completed">Importação concluída</string>
+    <string name="catalog_import_status_completed_errors">Concluída com itens que exigem revisão</string>
+    <string name="catalog_import_status_failed">Importação interrompida com segurança</string>
+    <string name="catalog_import_status_expired">Esta prévia expirou</string>
+    <string name="catalog_import_confirm_title">Aplicar esta prévia?</string>
+    <plurals name="catalog_import_confirm_ready">
+        <item quantity="one">%1$d alteração será aplicada.</item>
+        <item quantity="other">%1$d alterações serão aplicadas.</item>
+    </plurals>
+    <plurals name="catalog_import_confirm_invalid">
+        <item quantity="one">%1$d linha inválida continuará ignorada.</item>
+        <item quantity="other">%1$d linhas inválidas continuarão ignoradas.</item>
+    </plurals>
+    <string name="catalog_import_confirm_action">Confirmar importação</string>
+</resources>

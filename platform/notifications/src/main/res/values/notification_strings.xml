@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notification_channel_security">Segurança da conta</string>
+    <string name="notification_channel_security_description">Alertas essenciais de segurança e acesso</string>
+    <string name="notification_channel_attendance">Atendimento</string>
+    <string name="notification_channel_attendance_description">Novidades na central de atendimento</string>
+    <string name="notification_channel_operations">Operações</string>
+    <string name="notification_channel_operations_description">Pedidos, entregas e orçamentos</string>
+    <string name="notification_channel_planning">Planejamento e financeiro</string>
+    <string name="notification_channel_planning_description">Agenda, comissões e financeiro</string>
+    <string name="notification_channel_assistant">Assistente pessoal</string>
+    <string name="notification_channel_assistant_description">Atualizações solicitadas ao agente de IA</string>
+
+    <string name="notification_title_attendance">Atualização no atendimento</string>
+    <string name="notification_title_orders">Atualização em pedidos</string>
+    <string name="notification_title_deliveries">Atualização em entregas</string>
+    <string name="notification_title_quotes">Atualização em orçamentos</string>
+    <string name="notification_title_commissions">Atualização em comissões</string>
+    <string name="notification_title_appointments">Atualização na agenda</string>
+    <string name="notification_title_finance">Atualização financeira</string>
+    <string name="notification_title_agent">Atualização do assistente</string>
+    <string name="notification_title_security">Alerta de segurança</string>
+    <string name="notification_generic_body">Abra o app para consultar os detalhes com segurança.</string>
+</resources>

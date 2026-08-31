@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "5df96377eb09c224ae6dc1ab463cde456d57ad1b",
+  "sourceCommittedAt": "2026-08-30T21:32:27-03:00",
+  "androidTree": "e44569320739df15ce0eb87f5ce3e01a92fc879b",
+  "mobileOpenApiBlob": "b868e1fef3d97fdefe6e0d955cb917a6803c0db8",
+  "files": 1792,
+  "aggregateSha256": "5f780d04f7b28ffa44610edfb310aa788da4b5a8b971d49728a19840e33e5ab3",
+  "connectedProductionConfigurationIncluded": false,
+  "signingMaterialIncluded": false,
+  "generatedHistoryIncluded": false
+}

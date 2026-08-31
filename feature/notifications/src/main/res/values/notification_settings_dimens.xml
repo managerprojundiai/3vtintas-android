@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="notification_settings_screen_padding">20dp</dimen>
+    <dimen name="notification_settings_space_small">8dp</dimen>
+    <dimen name="notification_settings_space_medium">16dp</dimen>
+    <dimen name="notification_settings_card_radius">20dp</dimen>
+</resources>

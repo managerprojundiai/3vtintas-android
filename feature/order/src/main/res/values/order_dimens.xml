@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="order_space_small">8dp</dimen>
+    <dimen name="order_space_medium">16dp</dimen>
+    <dimen name="order_space_large">24dp</dimen>
+    <dimen name="order_screen_padding">16dp</dimen>
+    <dimen name="order_card_radius">16dp</dimen>
+</resources>

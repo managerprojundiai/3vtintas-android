@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="team_space_tiny">4dp</dimen>
+    <dimen name="team_space_small">8dp</dimen>
+    <dimen name="team_space_medium">16dp</dimen>
+    <dimen name="team_screen_padding">20dp</dimen>
+</resources>

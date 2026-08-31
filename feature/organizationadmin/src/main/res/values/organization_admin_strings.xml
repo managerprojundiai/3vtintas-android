@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="organization_admin_title">Lojas</string>
+    <string name="organization_admin_subtitle">Administração segura da rede 3V Tintas</string>
+    <string name="organization_admin_back">Voltar</string>
+    <string name="organization_admin_refresh">Atualizar lojas</string>
+    <string name="organization_admin_create">Adicionar loja</string>
+    <string name="organization_admin_search">Buscar por nome ou identificador</string>
+    <string name="organization_admin_apply">Aplicar</string>
+    <string name="organization_admin_filter_all">Todos os status</string>
+    <string name="organization_admin_status_active">Ativa</string>
+    <string name="organization_admin_status_blocked">Bloqueada</string>
+    <string name="organization_admin_status_pending">Pendente</string>
+    <plurals name="organization_admin_count">
+        <item quantity="one">%1$d loja exibida</item>
+        <item quantity="other">%1$d lojas exibidas</item>
+    </plurals>
+    <string name="organization_admin_empty">Nenhuma loja encontrada com esses filtros.</string>
+    <string name="organization_admin_load_more">Carregar mais</string>
+    <string name="organization_admin_members_format">Equipe %1$d · Gerência %2$d · Vendas %3$d · Entregas %4$d</string>
+    <string name="organization_admin_create_title">Nova loja</string>
+    <string name="organization_admin_detail_title">Detalhes da loja</string>
+    <string name="organization_admin_name">Nome da loja</string>
+    <string name="organization_admin_slug">Identificador técnico</string>
+    <string name="organization_admin_slug_help">Use somente letras minúsculas, números e hífens. Esse identificador não poderá ser alterado.</string>
+    <string name="organization_admin_validation">Informe um nome válido e um identificador como 3v-itatiba.</string>
+    <string name="organization_admin_validation_name">Informe um nome de loja válido.</string>
+    <string name="organization_admin_confirm">Criar loja</string>
+    <string name="organization_admin_save_name">Salvar nome</string>
+    <string name="organization_admin_block">Bloquear loja</string>
+    <string name="organization_admin_activate">Ativar loja</string>
+    <string name="organization_admin_block_confirmation_title">Bloquear %1$s?</string>
+    <string name="organization_admin_block_confirmation_message">Enquanto estiver bloqueada, a unidade ficará indisponível para a operação. A ação será registrada na auditoria.</string>
+    <string name="organization_admin_activate_confirmation_title">Ativar %1$s?</string>
+    <string name="organization_admin_activate_confirmation_message">A unidade voltará a ficar disponível para os usuários autorizados. A ação será registrada na auditoria.</string>
+    <string name="organization_admin_saved">Alteração salva com auditoria.</string>
+    <string name="organization_admin_error_session">Sua sessão expirou. Entre novamente.</string>
+    <string name="organization_admin_error_forbidden">Somente o administrador mestre pode gerenciar lojas.</string>
+    <string name="organization_admin_error_not_found">Essa loja não está mais disponível.</string>
+    <string name="organization_admin_error_conflict">A loja mudou ou a operação não é permitida. Atualize e tente novamente.</string>
+    <string name="organization_admin_error_invalid">Confira os dados informados.</string>
+    <string name="organization_admin_error_network">Não foi possível concluir agora. Verifique a conexão e tente novamente.</string>
+    <string name="organization_admin_error_update">Atualize o aplicativo para continuar.</string>
+    <string name="organization_admin_error_protocol">A resposta do serviço não pôde ser validada.</string>
+</resources>

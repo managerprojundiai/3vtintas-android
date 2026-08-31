@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dashboard_back">Voltar</string>
+    <string name="dashboard_title">Visão geral</string>
+    <string name="dashboard_subtitle">Indicadores atualizados para o seu acesso</string>
+    <string name="dashboard_refresh">Atualizar indicadores</string>
+    <string name="dashboard_retry">Tentar novamente</string>
+    <string name="dashboard_context_title">Contexto de acesso</string>
+    <string name="dashboard_context_value">%1$s · %2$s</string>
+    <string name="dashboard_generated_value">Atualizado em %1$s</string>
+    <string name="dashboard_visibility_self">Minha operação</string>
+    <string name="dashboard_visibility_team">Minha equipe</string>
+    <string name="dashboard_visibility_all">Todas as operações</string>
+    <string name="dashboard_all_organizations">Todas as lojas autorizadas</string>
+    <string name="dashboard_orders_title">Pedidos</string>
+    <string name="dashboard_orders_value">Total: %1$d\nAtivos: %2$d\nAguardando pagamento: %3$d</string>
+    <string name="dashboard_quotes_title">Orçamentos</string>
+    <string name="dashboard_quotes_value">Materiais ativos: %1$d\nMão de obra ativa: %2$d\nExpiram em breve: %3$d</string>
+    <string name="dashboard_deliveries_title">Entregas</string>
+    <string name="dashboard_deliveries_value">Ativas: %1$d\nHoje: %2$d\nEm trânsito: %3$d\nAguardando programação: %4$s</string>
+    <string name="dashboard_commissions_title">Comissões</string>
+    <string name="dashboard_commissions_value">Escopo: %1$s\nPendentes: %2$s\nAprovadas: %3$s</string>
+    <string name="dashboard_appointments_title">Agenda</string>
+    <string name="dashboard_appointments_value">Escopo: %1$s\nHoje: %2$d\nPróximos compromissos: %3$d</string>
+    <string name="dashboard_finance_title">Financeiro</string>
+    <string name="dashboard_finance_value">Escopo: %1$s\n\nPendentes\n%2$s\n\nVencidos\n%3$s</string>
+    <string name="dashboard_finance_totals">Despesas: %1$s\nA pagar: %2$s\nA receber: %3$s</string>
+    <string name="dashboard_aggregate_value">%1$d · %2$s</string>
+    <string name="dashboard_scope_self">Individual</string>
+    <string name="dashboard_scope_team">Equipe</string>
+    <string name="dashboard_scope_all">Global</string>
+    <string name="dashboard_scope_personal">Pessoal</string>
+    <string name="dashboard_scope_corporate">Corporativo</string>
+    <string name="dashboard_not_available">Não se aplica</string>
+    <string name="dashboard_no_metrics">Seu perfil não possui indicadores adicionais neste contexto.</string>
+    <string name="dashboard_error_title">Não foi possível abrir o painel</string>
+    <string name="dashboard_error_session">Sua sessão ou permissão mudou. Entre novamente.</string>
+    <string name="dashboard_error_forbidden">Seu perfil não pode consultar este painel.</string>
+    <string name="dashboard_error_network">Sem conexão. Verifique a internet e tente novamente.</string>
+    <string name="dashboard_error_rate">Muitas consultas. Aguarde um instante e tente novamente.</string>
+    <string name="dashboard_error_update">Atualize o aplicativo para continuar.</string>
+    <string name="dashboard_error_service">O painel está temporariamente indisponível.</string>
+    <string name="dashboard_error_generic">Não foi possível carregar os indicadores com segurança.</string>
+    <string name="dashboard_warning_stale">Não foi possível atualizar. Os últimos indicadores autorizados continuam visíveis.</string>
+    <string name="dashboard_support_code">Código de suporte: %1$s</string>
+</resources>

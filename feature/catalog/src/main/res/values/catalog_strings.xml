@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="catalog_title">Catálogo 3V</string>
+    <string name="catalog_search_hint">Pesquisar produtos</string>
+    <string name="catalog_search_example">Ex.: emborrachada, esmalte branco, rolo ou SKU</string>
+    <string name="catalog_search_minimum">Digite pelo menos 2 letras para pesquisar.</string>
+    <string name="catalog_category_hint">Categoria</string>
+    <string name="catalog_price_list_hint">Tabela de preço da venda</string>
+    <string name="catalog_price_selection_required">Escolha a tabela de preço para carregar os produtos desta venda.</string>
+    <string name="catalog_all_categories">Todas as categorias</string>
+    <string name="catalog_refresh">Atualizar</string>
+    <string name="catalog_manage">Administrar catálogo</string>
+    <string name="catalog_retry">Tentar novamente</string>
+    <string name="catalog_load_more">Carregar mais produtos</string>
+    <string name="catalog_loading_more">Carregando mais…</string>
+    <string name="catalog_status_loading">Carregando catálogo autorizado…</string>
+    <string name="catalog_status_cache">Exibindo informações protegidas salvas neste aparelho.</string>
+    <string name="catalog_status_offline">Sem conexão. Preços não serão exibidos até a validação no servidor.</string>
+    <plurals name="catalog_status_products">
+        <item quantity="one">%1$d produto atualizado</item>
+        <item quantity="other">%1$d produtos atualizados</item>
+    </plurals>
+    <string name="catalog_empty">Nenhum produto encontrado para estes filtros.</string>
+    <string name="catalog_error_title">Catálogo indisponível</string>
+    <string name="catalog_error_forbidden">Seu acesso ao catálogo não está ativo. Volte ao início e atualize as permissões.</string>
+    <string name="catalog_error_auth">Sua sessão deixou de ser válida. Volte ao início para entrar novamente.</string>
+    <string name="catalog_error_protocol">A resposta do catálogo não corresponde ao contrato seguro esperado.</string>
+    <string name="catalog_error_network">Não foi possível alcançar a 3V. Confira sua conexão e tente novamente.</string>
+    <string name="catalog_error_price_unavailable">Este produto não possui preço válido na tabela selecionada.</string>
+    <string name="catalog_error_price_changed">A política de preços da loja mudou. Atualize e escolha novamente.</string>
+    <string name="catalog_error_price_selection">Escolha uma tabela de preço válida para continuar.</string>
+    <string name="catalog_error_rate_limited">Muitas consultas foram realizadas. Aguarde alguns instantes.</string>
+    <string name="catalog_error_service">O catálogo está temporariamente indisponível.</string>
+    <string name="catalog_error_storage">O cache protegido não pôde ser acessado neste aparelho.</string>
+    <string name="catalog_error_update">Atualize o aplicativo para continuar usando o catálogo.</string>
+    <string name="catalog_request_id">Código de suporte: %1$s</string>
+    <string name="catalog_without_category">Sem categoria</string>
+    <string name="catalog_without_brand">Marca não informada</string>
+    <string name="catalog_stock_value">Estoque: %1$d</string>
+    <string name="catalog_stock_unavailable">Estoque não exibido</string>
+    <string name="catalog_sku_value">SKU %1$s</string>
+    <string name="catalog_sku_unavailable">SKU não informado</string>
+    <string name="catalog_price_restricted">Preço disponível com atendimento</string>
+    <string name="catalog_product_origin">%1$s • %2$s</string>
+    <string name="catalog_product_details">%1$s%2$s%3$s</string>
+    <string name="catalog_product_volume"> • %1$s</string>
+    <string name="catalog_product_unit"> • unidade %1$s</string>
+    <string name="catalog_product_accessibility">%1$s, categoria %2$s, preço %3$s, %4$s</string>
+</resources>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/agent_action_review_financial"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/agent_action_review_financial_operation"
+        style="@style/TextAppearance.Material3.LabelLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/agent_space_small" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/agent_action_review_financial_subject"
+        style="@style/TextAppearance.Material3.TitleMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/agent_space_small"
+        android:textIsSelectable="true" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/agent_action_review_financial_scope"
+        style="@style/TextAppearance.Material3.BodyMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/agent_space_tiny" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/agent_action_review_financial_organization"
+        style="@style/TextAppearance.Material3.BodyMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/agent_space_tiny"
+        android:visibility="gone" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/agent_action_review_financial_related"
+        style="@style/TextAppearance.Material3.BodyMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/agent_space_tiny"
+        android:visibility="gone" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/agent_action_review_financial_amount"
+        style="@style/TextAppearance.Material3.HeadlineSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/agent_space_large" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/agent_action_review_financial_details"
+        style="@style/TextAppearance.Material3.BodyMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/agent_space_small"
+        android:textIsSelectable="true" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/agent_action_review_financial_context"
+        style="@style/TextAppearance.Material3.BodyMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/agent_space_small"
+        android:textIsSelectable="true"
+        android:visibility="gone" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/agent_action_review_financial_before_label"
+        style="@style/TextAppearance.Material3.TitleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/agent_space_large"
+        android:text="@string/agent_action_before_label"
+        android:visibility="gone" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/agent_action_review_financial_before"
+        style="@style/TextAppearance.Material3.BodyMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/agent_space_tiny"
+        android:visibility="gone" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/agent_action_review_financial_after_label"
+        style="@style/TextAppearance.Material3.TitleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/agent_space_large"
+        android:text="@string/agent_action_after_label" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/agent_action_review_financial_after"
+        style="@style/TextAppearance.Material3.BodyMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/agent_space_tiny" />
+</LinearLayout>

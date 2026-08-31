@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:importantForAutofill="noExcludeDescendants"
+    android:orientation="vertical"
+    android:padding="@dimen/labor_quote_space_medium">
+
+    <EditText
+        android:id="@+id/labor_quote_line_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/labor_quote_description_hint"
+        android:inputType="textCapSentences"
+        android:maxLength="300" />
+
+    <EditText
+        android:id="@+id/labor_quote_line_quantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/labor_quote_quantity_hint"
+        android:inputType="numberDecimal"
+        android:maxLength="11" />
+
+    <EditText
+        android:id="@+id/labor_quote_line_unit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/labor_quote_unit_hint"
+        android:inputType="text"
+        android:maxLength="20" />
+
+    <EditText
+        android:id="@+id/labor_quote_line_unit_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/labor_quote_unit_price_hint"
+        android:inputType="numberDecimal"
+        android:maxLength="11" />
+</LinearLayout>

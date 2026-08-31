@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="audit_space_tiny">4dp</dimen>
+    <dimen name="audit_space_small">8dp</dimen>
+    <dimen name="audit_space_medium">16dp</dimen>
+    <dimen name="audit_screen_padding">20dp</dimen>
+</resources>

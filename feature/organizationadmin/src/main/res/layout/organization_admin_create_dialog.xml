@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/organization_admin_name"
+        android:importantForAutofill="no"
+        android:inputType="textCapWords"
+        android:maxLength="200" />
+
+    <EditText
+        android:id="@+id/slug"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="@string/organization_admin_slug"
+        android:importantForAutofill="no"
+        android:inputType="textNoSuggestions"
+        android:maxLength="120" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/organization_admin_slug_help"
+        android:textColor="#45617F"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/validation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/organization_admin_validation"
+        android:textColor="#B00020"
+        android:visibility="gone" />
+</LinearLayout>

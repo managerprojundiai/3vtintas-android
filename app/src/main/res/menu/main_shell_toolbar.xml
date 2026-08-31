@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/shell_toolbar_notifications"
+        android:icon="@drawable/shell_ic_notification"
+        android:title="@string/shell_toolbar_notifications"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/shell_toolbar_account"
+        android:icon="@drawable/shell_ic_account"
+        android:title="@string/shell_toolbar_account"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/shell_toolbar_logout"
+        android:title="@string/shell_toolbar_logout"
+        app:showAsAction="never" />
+</menu>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="agent_screen_padding">16dp</dimen>
+    <dimen name="agent_space_tiny">4dp</dimen>
+    <dimen name="agent_space_small">8dp</dimen>
+    <dimen name="agent_space_medium">16dp</dimen>
+    <dimen name="agent_space_large">24dp</dimen>
+    <dimen name="agent_message_max_width">340dp</dimen>
+    <dimen name="agent_progress_size">24dp</dimen>
+</resources>

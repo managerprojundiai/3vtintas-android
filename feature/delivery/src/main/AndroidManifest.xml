@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application android:supportsRtl="true">
+        <activity android:name=".DeliveryDetailActivity" android:exported="false" />
+        <activity android:name=".DeliveryListActivity" android:exported="false" />
+        <activity android:name=".DeliveryManagementListActivity" android:exported="false" />
+        <activity android:name=".DeliveryManagementDetailActivity" android:exported="false" />
+        <activity android:name=".DeliveryRouteActivity" android:exported="false" />
+    </application>
+</manifest>

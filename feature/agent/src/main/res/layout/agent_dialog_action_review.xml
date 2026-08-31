@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/agent_action_review_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/agent_space_large"
+            android:paddingVertical="@dimen/agent_space_small">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/agent_action_review_quote"
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/agent_action_review_customer"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/agent_space_small" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/agent_action_review_validity"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/agent_space_tiny" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/agent_action_review_attendance_channel"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/agent_space_tiny"
+                android:visibility="gone" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/agent_action_review_attendance_organization"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/agent_space_tiny"
+                android:visibility="gone" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/agent_action_review_attendance_latest_label"
+                style="@style/TextAppearance.Material3.LabelLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/agent_space_large"
+                android:text="@string/agent_action_attendance_latest_label"
+                android:visibility="gone" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/agent_action_review_attendance_latest"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/agent_space_tiny"
+                android:visibility="gone" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/agent_action_review_attendance_reply_label"
+                style="@style/TextAppearance.Material3.LabelLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/agent_space_large"
+                android:text="@string/agent_action_attendance_reply_label"
+                android:visibility="gone" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/agent_action_review_attendance_reply"
+                style="@style/TextAppearance.Material3.BodyLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/agent_space_tiny"
+                android:textIsSelectable="true"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/agent_action_review_appointment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_appointment_operation"
+                    style="@style/TextAppearance.Material3.LabelLarge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_small" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_appointment_kind"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_tiny" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_appointment_responsible"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_tiny" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_appointment_organization"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_tiny"
+                    android:visibility="gone" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_appointment_customer"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_tiny"
+                    android:visibility="gone" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_appointment_before_label"
+                    style="@style/TextAppearance.Material3.TitleSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_large"
+                    android:text="@string/agent_action_before_label"
+                    android:visibility="gone" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_appointment_before"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_tiny"
+                    android:textIsSelectable="true"
+                    android:visibility="gone" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_appointment_after_label"
+                    style="@style/TextAppearance.Material3.TitleSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_large"
+                    android:text="@string/agent_action_after_label" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_appointment_after"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_tiny"
+                    android:textIsSelectable="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/agent_action_review_delivery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_delivery_operation"
+                    style="@style/TextAppearance.Material3.LabelLarge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_small" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_delivery_order"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_tiny" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_delivery_organization"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_tiny"
+                    android:visibility="gone" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_delivery_customer"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_tiny"
+                    android:visibility="gone" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_delivery_driver"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_tiny" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_delivery_schedule"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_tiny" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_delivery_items"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_tiny" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_delivery_before_label"
+                    style="@style/TextAppearance.Material3.TitleSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_large"
+                    android:text="@string/agent_action_before_label" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_delivery_before"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_tiny"
+                    android:textIsSelectable="true" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_delivery_after_label"
+                    style="@style/TextAppearance.Material3.TitleSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_large"
+                    android:text="@string/agent_action_after_label" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_delivery_after"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_tiny"
+                    android:textIsSelectable="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/agent_action_review_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_order_operation"
+                    style="@style/TextAppearance.Material3.LabelLarge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_small" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_order_type"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_tiny" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_order_organization"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_tiny"
+                    android:visibility="gone" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_order_customer"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_tiny"
+                    android:visibility="gone" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_order_total"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_tiny" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_order_items"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_tiny" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_order_before_label"
+                    style="@style/TextAppearance.Material3.TitleSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_large"
+                    android:text="@string/agent_action_before_label" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_order_before"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_tiny"
+                    android:textIsSelectable="true" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_order_after_label"
+                    style="@style/TextAppearance.Material3.TitleSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_large"
+                    android:text="@string/agent_action_after_label" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agent_action_review_order_after"
+                    style="@style/TextAppearance.Material3.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/agent_space_tiny"
+                    android:textIsSelectable="true" />
+            </LinearLayout>
+
+            <include
+                layout="@layout/agent_view_financial_action_review" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/agent_action_review_changes_label"
+                style="@style/TextAppearance.Material3.LabelLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/agent_space_large"
+                android:text="@string/agent_action_changes_label"
+                android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/agent_action_review_changes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/agent_action_review_before_label"
+            style="@style/TextAppearance.Material3.TitleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/agent_space_large"
+            android:text="@string/agent_action_before_label"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/agent_action_review_before_items"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/agent_action_review_before_subtotal"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/agent_space_small"
+            android:visibility="gone" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/agent_action_review_before_discount"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/agent_space_tiny"
+            android:visibility="gone" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/agent_action_review_before_total"
+            style="@style/TextAppearance.Material3.LabelLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/agent_space_tiny"
+            android:visibility="gone" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/agent_action_review_after_label"
+            style="@style/TextAppearance.Material3.TitleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/agent_space_large"
+            android:text="@string/agent_action_after_label"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/agent_action_review_after_items"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/agent_action_review_after_subtotal"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/agent_space_small"
+            android:visibility="gone" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/agent_action_review_after_discount"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/agent_space_tiny"
+            android:visibility="gone" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/agent_action_review_items_label"
+            style="@style/TextAppearance.Material3.LabelLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/agent_space_large"
+            android:text="@string/agent_action_items_label" />
+
+        <LinearLayout
+            android:id="@+id/agent_action_review_items"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/agent_action_review_notes_label"
+            style="@style/TextAppearance.Material3.LabelLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/agent_space_large"
+            android:text="@string/agent_action_notes_label" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/agent_action_review_notes"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/agent_space_tiny" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/agent_action_review_subtotal"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/agent_space_large" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/agent_action_review_total"
+            style="@style/TextAppearance.Material3.TitleMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/agent_space_small" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/agent_action_review_notice"
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/agent_space_large"
+            android:textColor="?attr/colorOnSurfaceVariant" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/agent_action_review_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/agent_space_large"
+        android:layout_marginTop="@dimen/agent_space_small" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/agent_space_medium"
+        android:paddingBottom="@dimen/agent_space_small">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/agent_action_review_back"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/agent_action_back" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/agent_action_review_reject"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/agent_action_reject" />
+    </LinearLayout>
+</LinearLayout>

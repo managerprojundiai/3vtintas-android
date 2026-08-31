@@ -1,0 +1,77 @@
+plugins {
+    alias(libs.plugins.android.library)
+    id "jacoco"
+}
+
+android {
+    namespace = "br.com.tresvtintas.mobile.feature.painteradmin"
+    compileSdk = libs.versions.compileSdk.get().toInteger()
+    buildToolsVersion = libs.versions.buildTools.get()
+
+    defaultConfig {
+        minSdk = libs.versions.minSdk.get().toInteger()
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    lint {
+        abortOnError = true
+        checkReleaseBuilds = true
+        warningsAsErrors = true
+        htmlReport = true
+        xmlReport = true
+        sarifReport = true
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+}
+
+dependencies {
+    api(project(":core:painteradmin"))
+    implementation(project(":core:designsystem"))
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.core)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.material)
+    testImplementation(libs.junit4)
+}
+
+apply from: rootProject.file("gradle/quality.gradle")
+
+jacoco {
+    toolVersion = libs.versions.jacoco.get()
+}
+
+tasks.withType(Test).configureEach {
+    useJUnit()
+}
+
+def debugJavaClasses = layout.buildDirectory.dir(
+        "intermediates/javac/debug/compileDebugJavaWithJavac/classes")
+def report = tasks.register("jacocoDebugUnitTestReport", JacocoReport) {
+    dependsOn(tasks.named("testDebugUnitTest"))
+    sourceDirectories.from(files("src/main/java"))
+    classDirectories.from(debugJavaClasses)
+    executionData.from(layout.buildDirectory.file("jacoco/testDebugUnitTest.exec"))
+    reports {
+        xml.required = true
+        html.required = true
+    }
+}
+
+tasks.named("check") {
+    dependsOn(report)
+}

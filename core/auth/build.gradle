@@ -1,0 +1,94 @@
+plugins {
+    alias(libs.plugins.android.library)
+    id "jacoco"
+}
+
+android {
+    namespace = "br.com.tresvtintas.mobile.core.auth"
+    compileSdk = libs.versions.compileSdk.get().toInteger()
+    buildToolsVersion = libs.versions.buildTools.get()
+
+    defaultConfig {
+        minSdk = libs.versions.minSdk.get().toInteger()
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    lint {
+        abortOnError = true
+        checkReleaseBuilds = true
+        warningsAsErrors = true
+        htmlReport = true
+        xmlReport = true
+        sarifReport = true
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+}
+
+dependencies {
+    api(project(":core:network"))
+    implementation(project(":core:security"))
+
+    implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play.services.auth)
+    implementation(libs.google.id)
+
+    testImplementation(libs.junit4)
+    testImplementation(libs.okhttp.mockwebserver)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+}
+
+apply from: rootProject.file("gradle/quality.gradle")
+
+jacoco {
+    toolVersion = libs.versions.jacoco.get()
+}
+
+tasks.withType(Test).configureEach {
+    useJUnit()
+    testLogging {
+        events("failed", "skipped")
+        exceptionFormat = "full"
+    }
+}
+
+def debugJavaClasses = layout.buildDirectory.dir(
+        "intermediates/javac/debug/compileDebugJavaWithJavac/classes")
+
+def jacocoDebugUnitTestReport = tasks.register(
+        "jacocoDebugUnitTestReport",
+        JacocoReport) {
+    group = "verification"
+    description = "Generates coverage for authentication JVM unit tests."
+    dependsOn(tasks.named("testDebugUnitTest"))
+
+    sourceDirectories.from(files("src/main/java"))
+    classDirectories.from(debugJavaClasses.map { directory ->
+        fileTree(directory) {
+            exclude(
+                    '**/BuildConfig.*',
+                    '**/R.class',
+                    '**/R$*.class')
+        }
+    })
+    executionData.from(layout.buildDirectory.file("jacoco/testDebugUnitTest.exec"))
+
+    reports {
+        xml.required = true
+        html.required = true
+        csv.required = false
+    }
+}
+
+tasks.named("check") {
+    dependsOn(jacocoDebugUnitTestReport)
+}

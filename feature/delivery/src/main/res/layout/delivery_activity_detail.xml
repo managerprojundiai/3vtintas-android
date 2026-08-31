@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/delivery_detail_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/delivery_detail_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:navigationIcon="@drawable/delivery_ic_arrow_back"
+        app:navigationContentDescription="@string/delivery_back"
+        app:title="@string/delivery_detail_title"
+        app:subtitle="@string/delivery_detail_subtitle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/delivery_detail_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/delivery_detail_toolbar" />
+
+    <LinearLayout
+        android:id="@+id/delivery_detail_error"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/delivery_space_large"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/delivery_detail_progress"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/delivery_detail_error_message"
+            style="@style/TextAppearance.Material3.BodyLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:accessibilityLiveRegion="assertive"
+            android:gravity="center" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/delivery_detail_retry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/delivery_space_medium"
+            android:text="@string/delivery_retry" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/delivery_detail_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/delivery_detail_progress"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/delivery_screen_padding">
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/delivery_detail_reference"
+                style="@style/TextAppearance.Material3.HeadlineSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/delivery_detail_status"
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/delivery_space_small"
+                android:textColor="?attr/colorPrimary" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/delivery_detail_schedule"
+                style="@style/TextAppearance.Material3.BodyLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/delivery_space_medium" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/delivery_detail_driver"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/delivery_space_small" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/delivery_detail_tracking"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/delivery_space_small" />
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.Material3.BodySmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/delivery_space_medium"
+                android:text="@string/delivery_privacy_notice"
+                android:textColor="?attr/colorOnSurfaceVariant" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/delivery_action_notice"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/delivery_space_medium"
+                android:accessibilityLiveRegion="assertive"
+                android:visibility="gone" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/delivery_action_start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/delivery_space_large"
+                android:text="@string/delivery_action_start"
+                android:visibility="gone" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/delivery_action_complete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/delivery_space_large"
+                android:text="@string/delivery_action_complete"
+                android:visibility="gone" />
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/delivery_space_large"
+                android:text="@string/delivery_section_recipient" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/delivery_detail_recipient"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/delivery_space_small"
+                android:textIsSelectable="true" />
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/delivery_space_large"
+                android:text="@string/delivery_section_destination" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/delivery_detail_destination"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/delivery_space_small"
+                android:textIsSelectable="true" />
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/delivery_space_large"
+                android:text="@string/delivery_section_items" />
+            <LinearLayout
+                android:id="@+id/delivery_detail_items"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/delivery_space_large"
+                android:text="@string/delivery_section_instructions" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/delivery_detail_instructions"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/delivery_space_small"
+                android:paddingBottom="@dimen/delivery_space_large"
+                android:textIsSelectable="true" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

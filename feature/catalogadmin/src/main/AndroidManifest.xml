@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <activity
+            android:name=".CatalogAdministrationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CatalogImportActivity"
+            android:exported="false" />
+    </application>
+</manifest>

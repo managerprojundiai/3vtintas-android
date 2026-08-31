@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="team_title">Equipe</string>
+    <string name="team_subtitle">Desempenho de pintores</string>
+    <string name="team_back">Voltar</string>
+    <string name="team_refresh">Atualizar equipe</string>
+    <string name="team_retry">Tentar novamente</string>
+    <string name="team_error_title">Não foi possível carregar a equipe</string>
+    <string name="team_error_session">Sua sessão não permite mais consultar a equipe.</string>
+    <string name="team_error_forbidden">Seu perfil não tem acesso à equipe desta loja.</string>
+    <string name="team_error_update">Atualize o aplicativo para consultar a equipe.</string>
+    <string name="team_error_network">Sem conexão. Os dados anteriores continuam visíveis, quando disponíveis.</string>
+    <string name="team_error_rate_limited">Muitas atualizações seguidas. Aguarde e tente novamente.</string>
+    <string name="team_error_service_unavailable">A equipe está temporariamente indisponível.</string>
+    <string name="team_error_protocol">A resposta da equipe não pôde ser validada com segurança.</string>
+    <string name="team_support_code">Código de suporte: %1$s</string>
+    <string name="team_context_organization">Equipe · %1$s</string>
+    <string name="team_context_all">Todas as lojas</string>
+    <string name="team_generated_at">Atualizado em %1$s</string>
+    <string name="team_painters_label">Pintores</string>
+    <string name="team_orders_label">Pedidos</string>
+    <string name="team_quotes_label">Orçamentos</string>
+    <string name="team_sales_label">Vendas</string>
+    <string name="team_region_label">Região principal</string>
+    <plurals name="team_top_region_orders">
+        <item quantity="one">%1$d pedido</item>
+        <item quantity="other">%1$d pedidos</item>
+    </plurals>
+    <string name="team_top_region_value">%1$s · %2$s</string>
+    <string name="team_ranking_title">Ranking da equipe</string>
+    <string name="team_empty">Nenhum pintor ativo nesta equipe.</string>
+    <string name="team_not_informed">Não informado</string>
+    <string name="team_member_rank">#%1$d</string>
+    <plurals name="team_member_orders">
+        <item quantity="one">%1$d pedido</item>
+        <item quantity="other">%1$d pedidos</item>
+    </plurals>
+    <plurals name="team_member_quotes">
+        <item quantity="one">%1$d orçamento</item>
+        <item quantity="other">%1$d orçamentos</item>
+    </plurals>
+    <string name="team_member_performance">%1$s · %2$s · %3$s conversão</string>
+    <string name="team_member_region">%1$s · Comissão %2$s</string>
+    <string name="team_member_accessibility">Posição %1$d, %2$s, vendas %3$s, status %4$s</string>
+    <string name="team_status_active">Ativo</string>
+    <string name="team_status_pending">Pendente</string>
+    <string name="team_status_blocked">Bloqueado</string>
+</resources>

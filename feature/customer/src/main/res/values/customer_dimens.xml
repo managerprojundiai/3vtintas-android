@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="customer_screen_padding">20dp</dimen>
+    <dimen name="customer_space_extra_small">4dp</dimen>
+    <dimen name="customer_space_small">8dp</dimen>
+    <dimen name="customer_space_medium">16dp</dimen>
+    <dimen name="customer_space_large">24dp</dimen>
+    <dimen name="customer_card_radius">16dp</dimen>
+</resources>

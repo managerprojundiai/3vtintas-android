@@ -1,0 +1,295 @@
+plugins {
+    alias(libs.plugins.android.application)
+    id "jacoco"
+}
+
+def applicationVersionCode = providers.gradleProperty("appVersionCode")
+        .map { value -> value.toInteger() }
+        .orElse(70)
+def registeredAppVersionMaximum = 32
+def longestBuildTypeVersionSuffix = "-workforce"
+def applicationVersionName = providers.gradleProperty("appVersionName")
+        .orElse("0.59.0-tint-quotes")
+        .map { value ->
+            if ((value + longestBuildTypeVersionSuffix).length()
+                    > registeredAppVersionMaximum) {
+                throw new GradleException(
+                        "The decorated app version exceeds the 32-character mobile session contract.")
+            }
+            value
+        }
+def configuredMobileApiBaseUrl = providers.gradleProperty("mobileApiBaseUrl")
+def fallbackMobileApiBaseUrl = "https://api.3vtintas.invalid/api/mobile/v1/"
+def mobileApiBaseUrl = configuredMobileApiBaseUrl.orElse(fallbackMobileApiBaseUrl)
+def mobileContractVersion = providers.gradleProperty("mobileContractVersion")
+        .orElse("0.53.0")
+def firebaseApplicationId = providers.gradleProperty("firebaseApplicationId").orElse("")
+def firebaseProjectId = providers.gradleProperty("firebaseProjectId").orElse("")
+def firebaseApiKey = providers.gradleProperty("firebaseApiKey").orElse("")
+def firebaseSenderId = providers.gradleProperty("firebaseSenderId").orElse("")
+def firebaseConfigured = providers.provider {
+    !firebaseApplicationId.get().isBlank()
+            && !firebaseProjectId.get().isBlank()
+            && !firebaseApiKey.get().isBlank()
+            && !firebaseSenderId.get().isBlank()
+}
+def configuredAndroidTestBuildType = providers.gradleProperty("androidTestBuildType")
+        .orElse("debug")
+
+android {
+    namespace = "br.com.tresvtintas.mobile.app"
+    compileSdk = libs.versions.compileSdk.get().toInteger()
+    buildToolsVersion = libs.versions.buildTools.get()
+    testBuildType = configuredAndroidTestBuildType.get()
+
+    if (configuredAndroidTestBuildType.get() == "staging") {
+        sourceSets {
+            androidTest {
+                java.setSrcDirs(["src/physicalPilotAndroidTest/java"])
+                manifest.srcFile("src/androidTest/AndroidManifest.xml")
+            }
+        }
+    }
+
+    defaultConfig {
+        applicationId = "br.com.tresvtintas.app"
+        minSdk = libs.versions.minSdk.get().toInteger()
+        targetSdk = libs.versions.targetSdk.get().toInteger()
+        versionCode = applicationVersionCode.get()
+        versionName = applicationVersionName.get()
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "ENVIRONMENT", "\"production\"")
+        buildConfigField("String", "MOBILE_API_BASE_URL", "\"${mobileApiBaseUrl.get()}\"")
+        buildConfigField(
+                "String",
+                "MOBILE_CONTRACT_VERSION",
+                "\"${mobileContractVersion.get()}\"")
+        buildConfigField(
+                "boolean",
+                "MOBILE_API_CONFIGURED",
+                configuredMobileApiBaseUrl.isPresent().toString())
+        buildConfigField("boolean", "IS_WORKFORCE", "false")
+        buildConfigField("String", "FIREBASE_APPLICATION_ID", "\"${firebaseApplicationId.get()}\"")
+        buildConfigField("String", "FIREBASE_PROJECT_ID", "\"${firebaseProjectId.get()}\"")
+        buildConfigField("String", "FIREBASE_API_KEY", "\"${firebaseApiKey.get()}\"")
+        buildConfigField("String", "FIREBASE_SENDER_ID", "\"${firebaseSenderId.get()}\"")
+        buildConfigField(
+                "boolean",
+                "FIREBASE_CONFIGURED",
+                firebaseConfigured.get().toString())
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-debug"
+            buildConfigField("String", "ENVIRONMENT", "\"development\"")
+        }
+        staging {
+            initWith(debug)
+            applicationIdSuffix = ".staging"
+            versionNameSuffix = "-staging"
+            matchingFallbacks = ["debug"]
+            buildConfigField("String", "ENVIRONMENT", "\"staging\"")
+        }
+        workforceStaging {
+            initWith(staging)
+            applicationIdSuffix = ".staging"
+            versionNameSuffix = "-workforce"
+            matchingFallbacks = ["staging", "debug"]
+            buildConfigField("String", "ENVIRONMENT", "\"private-workforce\"")
+            buildConfigField("boolean", "IS_WORKFORCE", "true")
+        }
+        release {
+            minifyEnabled = true
+            shrinkResources = true
+            proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro")
+        }
+    }
+
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    lint {
+        abortOnError = true
+        checkReleaseBuilds = true
+        warningsAsErrors = true
+        htmlReport = true
+        xmlReport = true
+        sarifReport = true
+    }
+
+    packaging {
+        resources {
+            excludes += [
+                    "META-INF/AL2.0",
+                    "META-INF/LGPL2.1",
+                    "META-INF/LICENSE.md",
+                    "META-INF/NOTICE.md"
+            ]
+        }
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+}
+
+dependencies {
+    implementation(project(":core:accountaccess"))
+    implementation(project(":core:common"))
+    implementation(project(":core:agent"))
+    implementation(project(":core:auth"))
+    implementation(project(":core:attendance"))
+    implementation(project(":core:appointment"))
+    implementation(project(":core:audit"))
+    implementation(project(":core:bootstrap"))
+    implementation(project(":core:catalog"))
+    implementation(project(":core:catalogadmin"))
+    implementation(project(":core:commission"))
+    implementation(project(":core:corporatefinance"))
+    implementation(project(":core:customer"))
+    implementation(project(":core:dashboard"))
+    implementation(project(":core:team"))
+    implementation(project(":core:painteradmin"))
+    implementation(project(":core:useradmin"))
+    implementation(project(":core:organizationadmin"))
+    implementation(project(":core:delivery"))
+    implementation(project(":core:finance"))
+    implementation(project(":core:laborquote"))
+    implementation(project(":core:quote"))
+    implementation(project(":core:order"))
+    implementation(project(":core:model"))
+    implementation(project(":core:designsystem"))
+    implementation(project(":core:notifications"))
+    implementation(project(":core:network"))
+    implementation(project(":core:security"))
+    implementation(project(":core:systemconfiguration"))
+    implementation(project(":core:whatsappadmin"))
+    implementation(project(":core:location"))
+    implementation(project(":data:catalog"))
+    implementation(project(":data:catalogadmin"))
+    implementation(project(":data:accountaccess"))
+    implementation(project(":data:agent"))
+    implementation(project(":data:attendance"))
+    implementation(project(":data:appointment"))
+    implementation(project(":data:audit"))
+    implementation(project(":data:commission"))
+    implementation(project(":data:customer"))
+    implementation(project(":data:dashboard"))
+    implementation(project(":data:team"))
+    implementation(project(":data:painteradmin"))
+    implementation(project(":data:useradmin"))
+    implementation(project(":data:organizationadmin"))
+    implementation(project(":data:delivery"))
+    implementation(project(":data:finance"))
+    implementation(project(":data:laborquote"))
+    implementation(project(":data:quote"))
+    implementation(project(":data:order"))
+    implementation(project(":data:notifications"))
+    implementation(project(":data:systemconfiguration"))
+    implementation(project(":data:whatsappadmin"))
+    implementation(project(":feature:catalog"))
+    implementation(project(":feature:catalogadmin"))
+    implementation(project(":feature:accountaccess"))
+    implementation(project(":feature:agent"))
+    implementation(project(":feature:attendance"))
+    implementation(project(":feature:appointment"))
+    implementation(project(":feature:audit"))
+    implementation(project(":feature:commission"))
+    implementation(project(":feature:corporatefinance"))
+    implementation(project(":feature:customer"))
+    implementation(project(":feature:dashboard"))
+    implementation(project(":feature:team"))
+    implementation(project(":feature:painteradmin"))
+    implementation(project(":feature:useradmin"))
+    implementation(project(":feature:organizationadmin"))
+    implementation(project(":feature:delivery"))
+    implementation(project(":feature:finance"))
+    implementation(project(":feature:laborquote"))
+    implementation(project(":feature:quote"))
+    implementation(project(":feature:order"))
+    implementation(project(":feature:notifications"))
+    implementation(project(":feature:systemconfiguration"))
+    implementation(project(":feature:whatsappadmin"))
+    implementation(project(":feature:shell"))
+    implementation(project(":platform:notifications"))
+
+    workforceStagingImplementation(project(":data:location"))
+    workforceStagingImplementation(project(":feature:location"))
+    workforceStagingImplementation(project(":platform:location"))
+
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.core)
+    implementation(libs.material)
+
+    testImplementation(libs.junit4)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.credentials)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.room.runtime)
+    androidTestImplementation(libs.androidx.room.testing)
+    androidTestImplementation(libs.androidx.test.core)
+    androidTestImplementation(libs.google.id)
+}
+
+apply from: rootProject.file("gradle/quality.gradle")
+
+jacoco {
+    toolVersion = libs.versions.jacoco.get()
+}
+
+tasks.withType(Test).configureEach {
+    useJUnit()
+    testLogging {
+        events("failed", "skipped")
+        exceptionFormat = "full"
+    }
+}
+
+def debugJavaClasses = layout.buildDirectory.dir(
+        "intermediates/javac/debug/compileDebugJavaWithJavac/classes")
+
+def jacocoDebugUnitTestReport = tasks.register(
+        "jacocoDebugUnitTestReport",
+        JacocoReport) {
+    group = "verification"
+    description = "Generates coverage for debug JVM unit tests."
+    dependsOn(tasks.named("testDebugUnitTest"))
+
+    sourceDirectories.from(files("src/main/java"))
+    classDirectories.from(debugJavaClasses.map { directory ->
+        fileTree(directory) {
+            exclude(
+                    '**/BuildConfig.*',
+                    '**/R.class',
+                    '**/R$*.class',
+                    '**/*Binding.*')
+        }
+    })
+    executionData.from(layout.buildDirectory.file("jacoco/testDebugUnitTest.exec"))
+
+    reports {
+        xml.required = true
+        html.required = true
+        csv.required = false
+    }
+}
+
+tasks.named("check") {
+    dependsOn(jacocoDebugUnitTestReport)
+}

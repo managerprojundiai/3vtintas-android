@@ -1,0 +1,53 @@
+plugins {
+    id "java-library"
+    id "jacoco"
+    alias(libs.plugins.spotbugs)
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(libs.versions.java.get().toInteger())
+    }
+}
+
+dependencies {
+    api(libs.retrofit)
+    api(libs.jackson.databind)
+    implementation(libs.jackson.parameter.names)
+    api(libs.okhttp)
+    implementation(libs.retrofit.jackson)
+
+    testImplementation(libs.junit4)
+    testImplementation(libs.okhttp.mockwebserver)
+}
+
+apply from: rootProject.file("gradle/quality.gradle")
+
+jacoco {
+    toolVersion = libs.versions.jacoco.get()
+}
+
+tasks.withType(Test).configureEach {
+    useJUnit()
+    testLogging {
+        events("failed", "skipped")
+        exceptionFormat = "full"
+    }
+}
+
+tasks.named("jacocoTestReport", JacocoReport) {
+    dependsOn(tasks.named("test"))
+    reports {
+        xml.required = true
+        html.required = true
+        csv.required = false
+    }
+}
+
+tasks.withType(com.github.spotbugs.snom.SpotBugsTask).configureEach {
+    ignoreFailures = false
+    reports {
+        html.required = true
+        xml.required = false
+    }
+}

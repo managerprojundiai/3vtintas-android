@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="attendance_screen_padding">16dp</dimen>
+    <dimen name="attendance_space_small">8dp</dimen>
+    <dimen name="attendance_space_medium">16dp</dimen>
+    <dimen name="attendance_space_tiny">4dp</dimen>
+    <dimen name="attendance_message_max_width">320dp</dimen>
+    <dimen name="attendance_reply_progress_size">32dp</dimen>
+</resources>

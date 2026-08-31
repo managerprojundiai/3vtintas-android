@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.ThreeVTintas" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#ADC7FF</item>
+        <item name="colorOnPrimary">#002F68</item>
+        <item name="colorPrimaryContainer">#06458F</item>
+        <item name="colorOnPrimaryContainer">#D9E6FF</item>
+        <item name="colorSecondary">#FFB77B</item>
+        <item name="colorTertiary">#FFB2BB</item>
+        <item name="colorSurface">#10131A</item>
+        <item name="colorSurfaceContainer">#1D2028</item>
+        <item name="colorOnSurface">#E2E2EA</item>
+        <item name="android:colorAccent">#ADC7FF</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowActionModeOverlay">true</item>
+    </style>
+</resources>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/labor_quote_detail_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:navigationIcon="@drawable/labor_quote_ic_arrow_back"
+        android:title="@string/labor_quote_detail_title"
+        app:navigationContentDescription="@string/labor_quote_back" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/labor_quote_detail_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/labor_quote_screen_padding">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labor_quote_detail_headline"
+                style="@style/TextAppearance.Material3.HeadlineSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labor_quote_detail_meta"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/labor_quote_space_small" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labor_quote_detail_items"
+                style="@style/TextAppearance.Material3.BodyLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/labor_quote_space_medium"
+                android:textIsSelectable="true" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/labor_quote_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/labor_quote_space_medium"
+                android:text="@string/labor_quote_edit" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/labor_quote_status"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/labor_quote_space_small"
+                android:text="@string/labor_quote_status_action" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/labor_quote_duplicate"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/labor_quote_space_small"
+                android:text="@string/labor_quote_duplicate"
+                android:visibility="gone" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labor_quote_status_notice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/labor_quote_space_small"
+                android:accessibilityLiveRegion="polite"
+                android:textColor="?attr/colorPrimary"
+                android:visibility="gone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/labor_quote_pdf"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/labor_quote_space_small"
+                android:text="@string/labor_quote_pdf" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labor_quote_pdf_note"
+                style="@style/TextAppearance.Material3.BodySmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/labor_quote_space_small"
+                android:text="@string/labor_quote_pdf_note" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/labor_quote_detail_error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/labor_quote_space_small"
+                android:accessibilityLiveRegion="assertive"
+                android:textColor="?attr/colorError" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

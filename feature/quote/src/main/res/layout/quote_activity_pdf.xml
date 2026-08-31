@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/quote_pdf_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:navigationIcon="@drawable/quote_ic_arrow_back"
+        app:navigationContentDescription="@string/quote_back"
+        app:title="@string/quote_pdf_title" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/quote_pdf_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:id="@+id/quote_pdf_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <ImageView
+            android:id="@+id/quote_pdf_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/quote_pdf_page_content"
+            android:padding="@dimen/quote_space_small"
+            android:scaleType="fitCenter" />
+    </ScrollView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/quote_pdf_page"
+        style="@style/TextAppearance.Material3.BodyMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/quote_space_small" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/quote_screen_padding">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/quote_pdf_previous"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/quote_pdf_previous" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/quote_pdf_next"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/quote_space_small"
+            android:layout_weight="1"
+            android:text="@string/quote_pdf_next" />
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/quote_pdf_share"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/quote_screen_padding"
+        android:layout_marginBottom="@dimen/quote_space_small"
+        android:text="@string/quote_pdf_share" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/quote_pdf_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/quote_screen_padding"
+        android:paddingBottom="@dimen/quote_space_small"
+        android:textColor="?attr/colorError" />
+</LinearLayout>

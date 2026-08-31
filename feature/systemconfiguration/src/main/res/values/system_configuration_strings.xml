@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="system_configuration_title">Configurações gerais</string>
+    <string name="system_configuration_subtitle">Identidade operacional e políticas seguras do sistema</string>
+    <string name="system_configuration_security">Somente dados operacionais aparecem aqui. Chaves, tokens, prompts e conexões do WhatsApp permanecem restritos ao painel Web.</string>
+    <string name="system_configuration_store_section">Informações da loja</string>
+    <string name="system_configuration_store_name">Nome da loja</string>
+    <string name="system_configuration_store_phone">Telefone da loja</string>
+    <string name="system_configuration_store_address">Endereço</string>
+    <string name="system_configuration_labor_section">Empresa de mão de obra</string>
+    <string name="system_configuration_labor_company">Nome da empresa</string>
+    <string name="system_configuration_labor_contact">Contato da empresa</string>
+    <string name="system_configuration_policy_section">Políticas gerais</string>
+    <string name="system_configuration_commission">Comissão padrão (%)</string>
+    <string name="system_configuration_auto_approve">Preferência de aprovação automática de pintores</string>
+    <string name="system_configuration_auto_approve_note">A preferência fica registrada, mas novos cadastros continuam em revisão manual até a automação ser liberada formalmente.</string>
+    <string name="system_configuration_save">Revisar e salvar</string>
+    <string name="system_configuration_retry">Recarregar</string>
+    <string name="system_configuration_revision">Revisão protegida %1$d</string>
+    <string name="system_configuration_confirm_title">Confirme as alterações</string>
+    <string name="system_configuration_confirm_action">Salvar configuração</string>
+    <string name="system_configuration_change">%1$s:\n%2$s → %3$s</string>
+    <string name="system_configuration_change_boolean">%1$s: %2$s</string>
+    <string name="system_configuration_empty">(vazio)</string>
+    <string name="system_configuration_enabled">ativada</string>
+    <string name="system_configuration_disabled">desativada</string>
+    <string name="system_configuration_saved">Configuração salva e auditada.</string>
+    <string name="system_configuration_replayed">A alteração já havia sido salva com segurança.</string>
+    <string name="system_configuration_no_changes">Nenhuma alteração para salvar.</string>
+    <string name="system_configuration_invalid">Revise os campos. A comissão deve ficar entre 0 e 100, com até duas casas decimais.</string>
+    <string name="system_configuration_conflict">Outra edição foi salva antes desta. Os dados atuais foram recarregados para revisão.</string>
+    <string name="system_configuration_access_revoked">Sua conta não possui mais acesso às configurações gerais.</string>
+    <string name="system_configuration_network">Não foi possível comunicar com a 3V. Nenhuma alteração foi aplicada.</string>
+    <string name="system_configuration_failure">A configuração não pôde ser salva. Nenhuma alteração parcial foi aplicada.</string>
+</resources>

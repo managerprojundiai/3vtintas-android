@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/notification_settings_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/notification_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:navigationIcon="@drawable/notification_settings_ic_arrow_back"
+        android:paddingHorizontal="@dimen/notification_settings_space_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationContentDescription="@string/notification_settings_back"
+        app:subtitle="@string/notification_settings_subtitle"
+        app:title="@string/notification_settings_title" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/notification_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/notification_toolbar" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/notification_notice"
+        style="@style/TextAppearance.Material3.BodyMedium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/notification_settings_screen_padding"
+        android:layout_marginTop="@dimen/notification_settings_space_small"
+        android:accessibilityLiveRegion="polite"
+        android:background="?attr/colorTertiaryContainer"
+        android:padding="@dimen/notification_settings_space_medium"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/notification_progress" />
+
+    <LinearLayout
+        android:id="@+id/notification_error_group"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/notification_settings_screen_padding"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/notification_notice">
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/TextAppearance.Material3.TitleLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/notification_error_title" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/notification_retry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/notification_settings_space_medium"
+            android:text="@string/notification_retry" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/notification_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/notification_notice">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/notification_settings_screen_padding">
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/notification_settings_intro" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/notification_settings_space_medium"
+                app:cardCornerRadius="@dimen/notification_settings_card_radius"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/notification_settings_space_medium">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.Material3.TitleMedium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/notification_permission_title" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/notification_permission_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/notification_settings_space_small" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/notification_transport_status"
+                        style="@style/TextAppearance.Material3.BodySmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/notification_settings_space_small" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/notification_permission_action"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/notification_settings_space_medium"
+                        android:text="@string/notification_permission_enable" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/notification_operational"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/notification_settings_space_medium"
+                android:minHeight="48dp"
+                android:text="@string/notification_operational" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.Material3.TitleMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/notification_settings_space_medium"
+                android:text="@string/notification_categories_title" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/notification_attendance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/notification_category_attendance" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/notification_orders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/notification_category_orders" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/notification_deliveries"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/notification_category_deliveries" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/notification_quotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/notification_category_quotes" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/notification_commissions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/notification_category_commissions" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/notification_appointments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/notification_category_appointments" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/notification_finance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/notification_category_finance" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/notification_agent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="@string/notification_category_agent" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/notification_security"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:enabled="false"
+                android:minHeight="48dp"
+                android:text="@string/notification_category_security" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/TextAppearance.Material3.BodySmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/notification_security_note" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/notification_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/notification_settings_space_medium"
+                android:text="@string/notification_save" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/notification_support_code"
+                style="@style/TextAppearance.Material3.LabelSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/notification_settings_space_small"
+                android:textIsSelectable="true"
+                android:visibility="gone" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

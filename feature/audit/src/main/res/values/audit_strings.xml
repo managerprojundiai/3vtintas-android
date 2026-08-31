@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="audit_title">Auditoria</string>
+    <string name="audit_subtitle">Histórico geral saneado e somente leitura</string>
+    <string name="audit_back">Voltar</string>
+    <string name="audit_privacy_notice">Exibição protegida. Detalhes internos, IPs, e-mails e identificadores não são enviados ao aplicativo.</string>
+    <string name="audit_open_agent_replay">Abrir replay do agente</string>
+    <string name="audit_action_hint">Ação exata (opcional)</string>
+    <string name="audit_entity_hint">Tipo de recurso exato (opcional)</string>
+    <string name="audit_apply_filters">Aplicar filtros</string>
+    <string name="audit_clear_filters">Limpar</string>
+    <string name="audit_refresh">Atualizar</string>
+    <string name="audit_retry">Tentar novamente</string>
+    <string name="audit_load_more">Carregar mais</string>
+    <string name="audit_empty">Nenhum evento encontrado com estes filtros.</string>
+    <string name="audit_stale">Os eventos exibidos podem estar desatualizados. Atualize quando a conexão retornar.</string>
+    <string name="audit_count_empty">Nenhum evento</string>
+    <plurals name="audit_count">
+        <item quantity="one">%1$d evento carregado</item>
+        <item quantity="other">%1$d eventos carregados</item>
+    </plurals>
+    <string name="audit_system_actor">Sistema</string>
+    <string name="audit_system_entity">Evento geral</string>
+    <string name="audit_actor_format">%1$s • %2$s</string>
+    <string name="audit_role_master">Administrador mestre</string>
+    <string name="audit_role_manager">Gerente</string>
+    <string name="audit_role_salesperson">Vendedor</string>
+    <string name="audit_role_delivery">Entregador</string>
+    <string name="audit_role_painter">Pintor</string>
+    <string name="audit_role_customer">Cliente</string>
+    <string name="audit_role_user">Usuário</string>
+    <string name="audit_support_code">Código de suporte: %1$s</string>
+    <string name="audit_error_access">Seu acesso à auditoria não está mais disponível. Atualize a sessão.</string>
+    <string name="audit_error_invalid">Os filtros informados não são válidos.</string>
+    <string name="audit_error_network">Não foi possível conectar ao serviço. Verifique a internet.</string>
+    <string name="audit_error_rate_limited">Muitas solicitações foram enviadas. Tente novamente em instantes.</string>
+    <string name="audit_error_service">O serviço está temporariamente indisponível.</string>
+    <string name="audit_error_update">Atualize o aplicativo para continuar.</string>
+    <string name="audit_error_protocol">A resposta recebida não pôde ser validada com segurança.</string>
+
+    <string name="agent_replay_title">Replay do Agente</string>
+    <string name="agent_replay_subtitle">Linha do tempo operacional saneada</string>
+    <string name="agent_replay_privacy_notice">Somente fases, horários e resultados públicos. Mensagens, respostas, prompts, ferramentas, payloads e identificadores internos nunca são exibidos.</string>
+    <string name="agent_replay_stale">A linha do tempo exibida pode estar desatualizada. Atualize quando a conexão retornar.</string>
+    <string name="agent_replay_channel_hint">Canal</string>
+    <string name="agent_replay_apply_filter">Aplicar</string>
+    <string name="agent_replay_count_empty">Nenhuma execução</string>
+    <plurals name="agent_replay_count">
+        <item quantity="one">%1$d execução carregada</item>
+        <item quantity="other">%1$d execuções carregadas</item>
+    </plurals>
+    <string name="agent_replay_empty">Nenhuma execução encontrada neste canal.</string>
+    <plurals name="agent_replay_step_count">
+        <item quantity="one">%1$d etapa pública</item>
+        <item quantity="other">%1$d etapas públicas</item>
+    </plurals>
+    <string name="agent_replay_duration">Duração: %1$d s</string>
+    <string name="agent_replay_truncated">A execução possui mais etapas; o servidor limitou a exibição segura.</string>
+    <string name="agent_replay_show_steps">Ver etapas</string>
+    <string name="agent_replay_hide_steps">Ocultar etapas</string>
+    <string name="agent_replay_no_public_steps">Nenhuma etapa pública disponível.</string>
+    <string name="agent_replay_step_format">%1$s  •  %2$s  •  %3$s</string>
+
+    <string-array name="agent_replay_channel_labels">
+        <item>Todos os canais</item>
+        <item>WhatsApp</item>
+        <item>Chat do site</item>
+        <item>Aplicativo móvel</item>
+        <item>Telegram</item>
+        <item>Instagram</item>
+        <item>Messenger</item>
+        <item>Painel administrativo</item>
+        <item>API</item>
+    </string-array>
+
+    <string name="agent_replay_channel_whatsapp">WhatsApp</string>
+    <string name="agent_replay_channel_site_chat">Chat do site</string>
+    <string name="agent_replay_channel_mobile_app">Aplicativo móvel</string>
+    <string name="agent_replay_channel_telegram">Telegram</string>
+    <string name="agent_replay_channel_instagram">Instagram</string>
+    <string name="agent_replay_channel_messenger">Messenger</string>
+    <string name="agent_replay_channel_admin">Painel administrativo</string>
+    <string name="agent_replay_channel_api">API</string>
+    <string name="agent_replay_channel_unknown">Canal não identificado</string>
+
+    <string name="agent_replay_outcome_completed">Concluída</string>
+    <string name="agent_replay_outcome_blocked">Bloqueada</string>
+    <string name="agent_replay_outcome_failed">Falhou</string>
+    <string name="agent_replay_outcome_incomplete">Incompleta</string>
+
+    <string name="agent_replay_phase_received">Recebimento</string>
+    <string name="agent_replay_phase_planned">Planejamento</string>
+    <string name="agent_replay_phase_policy">Verificação de política</string>
+    <string name="agent_replay_phase_action_requested">Ação solicitada</string>
+    <string name="agent_replay_phase_action_completed">Ação concluída</string>
+    <string name="agent_replay_phase_response">Resposta preparada</string>
+    <string name="agent_replay_phase_handoff">Transferência humana</string>
+    <string name="agent_replay_phase_recovered">Recuperação</string>
+    <string name="agent_replay_phase_completed">Conclusão</string>
+    <string name="agent_replay_phase_other">Etapa protegida</string>
+
+    <string name="agent_replay_step_ok">Concluída</string>
+    <string name="agent_replay_step_blocked">Bloqueada</string>
+    <string name="agent_replay_step_failed">Falhou</string>
+    <string name="agent_replay_step_unknown">Resultado protegido</string>
+</resources>

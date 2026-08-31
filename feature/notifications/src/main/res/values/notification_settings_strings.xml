@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notification_settings_back">Voltar</string>
+    <string name="notification_settings_title">Notificações</string>
+    <string name="notification_settings_subtitle">Privacidade e alertas do aparelho</string>
+    <string name="notification_settings_intro">O push transporta somente um evento e uma rota autorizada. Nomes, mensagens, valores, endereços e outros detalhes são consultados pela API após abrir o app.</string>
+    <string name="notification_permission_title">Permissão do Android</string>
+    <string name="notification_permission_unknown">Ainda não solicitada neste aparelho.</string>
+    <string name="notification_permission_granted">Permitida pelo Android.</string>
+    <string name="notification_permission_denied">Desativada no Android.</string>
+    <string name="notification_permission_enable">Ativar notificações</string>
+    <string name="notification_permission_settings">Abrir configurações do Android</string>
+    <string name="notification_transport_ready">Firebase pronto para registrar este aparelho.</string>
+    <string name="notification_transport_configuration">Firebase ainda não foi configurado nesta variante do app.</string>
+    <string name="notification_operational">Receber alertas operacionais</string>
+    <string name="notification_categories_title">Escolha os assuntos</string>
+    <string name="notification_category_attendance">Atendimento</string>
+    <string name="notification_category_orders">Pedidos</string>
+    <string name="notification_category_deliveries">Entregas</string>
+    <string name="notification_category_quotes">Orçamentos</string>
+    <string name="notification_category_commissions">Comissões</string>
+    <string name="notification_category_appointments">Agenda</string>
+    <string name="notification_category_finance">Financeiro</string>
+    <string name="notification_category_agent">Assistente pessoal</string>
+    <string name="notification_category_security">Segurança da conta (sempre ativa)</string>
+    <string name="notification_security_note">Alertas essenciais permanecem vinculados à segurança da conta. O Android ainda permite bloquear todas as notificações nas configurações do sistema.</string>
+    <string name="notification_save">Salvar preferências</string>
+    <string name="notification_retry">Tentar novamente</string>
+    <string name="notification_error_title">Não foi possível abrir as preferências</string>
+    <string name="notification_error_session">Sua sessão ou permissão mudou. Entre novamente.</string>
+    <string name="notification_error_configuration">O transporte push ainda não está configurado neste ambiente.</string>
+    <string name="notification_error_conflict">As preferências mudaram em outra tela. Os dados atuais foram recarregados.</string>
+    <string name="notification_error_network">Sem conexão. As preferências não foram alteradas.</string>
+    <string name="notification_error_rate">Muitas tentativas. Aguarde um instante.</string>
+    <string name="notification_error_update">Atualize o aplicativo para continuar.</string>
+    <string name="notification_error_service">O serviço está temporariamente indisponível.</string>
+    <string name="notification_error_generic">Não foi possível concluir a operação com segurança.</string>
+    <string name="notification_support_code">Código de suporte: %1$s</string>
+</resources>

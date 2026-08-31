@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="debug_agent_action_review_title">Auditoria local da revisão</string>
+    <string name="debug_agent_action_no_decision">Nenhuma decisão</string>
+    <string name="debug_agent_action_reopen">Reabrir revisão</string>
+    <string name="debug_agent_action_confirm">CONFIRM</string>
+    <string name="debug_agent_action_reject">REJECT</string>
+</resources>

@@ -1,0 +1,10 @@
+package br.com.tresvtintas.mobile.feature.shell;
+
+public enum ShellScopeKind {
+    GLOBAL,
+    PERSONAL,
+    SELECTED_ORGANIZATION,
+    REQUIRES_ORGANIZATION_SELECTION,
+    ORGANIZATION_ASSIGNMENT_REQUIRED,
+    ORGANIZATION_LIST_INCOMPLETE
+}

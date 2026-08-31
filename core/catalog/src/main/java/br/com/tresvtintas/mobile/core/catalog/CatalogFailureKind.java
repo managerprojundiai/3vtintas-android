@@ -1,0 +1,17 @@
+package br.com.tresvtintas.mobile.core.catalog;
+
+public enum CatalogFailureKind {
+    ACCESS_REVOKED,
+    AUTH_REJECTED,
+    FORBIDDEN,
+    INVALID_REQUEST,
+    NETWORK,
+    PRICE_NOT_AVAILABLE,
+    PRICE_POLICY_CHANGED,
+    PRICE_SELECTION_REQUIRED,
+    PROTOCOL,
+    RATE_LIMITED,
+    SERVICE_UNAVAILABLE,
+    STORAGE,
+    UPDATE_REQUIRED
+}

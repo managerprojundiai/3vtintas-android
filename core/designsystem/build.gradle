@@ -1,0 +1,33 @@
+plugins {
+    alias(libs.plugins.android.library)
+}
+
+android {
+    namespace = "br.com.tresvtintas.mobile.core.designsystem"
+    compileSdk = libs.versions.compileSdk.get().toInteger()
+    buildToolsVersion = libs.versions.buildTools.get()
+
+    defaultConfig {
+        minSdk = libs.versions.minSdk.get().toInteger()
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    lint {
+        abortOnError = true
+        checkReleaseBuilds = true
+        warningsAsErrors = true
+        htmlReport = true
+        xmlReport = true
+        sarifReport = true
+    }
+}
+
+dependencies {
+    api(libs.material)
+}
+
+apply from: rootProject.file("gradle/quality.gradle")

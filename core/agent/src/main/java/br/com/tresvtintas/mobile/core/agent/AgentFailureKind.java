@@ -1,0 +1,17 @@
+package br.com.tresvtintas.mobile.core.agent;
+
+public enum AgentFailureKind {
+    ACCESS_REVOKED,
+    AUTH_REJECTED,
+    FORBIDDEN,
+    NOT_FOUND,
+    INVALID_REQUEST,
+    CONFLICT,
+    IDEMPOTENCY_IN_PROGRESS,
+    IDEMPOTENCY_KEY_REUSED,
+    RATE_LIMITED,
+    SERVICE_UNAVAILABLE,
+    NETWORK,
+    PROTOCOL,
+    UPDATE_REQUIRED
+}

@@ -1,0 +1,108 @@
+plugins {
+    alias(libs.plugins.android.library)
+    id "jacoco"
+}
+
+android {
+    namespace = "br.com.tresvtintas.mobile.data.catalog"
+    compileSdk = libs.versions.compileSdk.get().toInteger()
+    buildToolsVersion = libs.versions.buildTools.get()
+
+    defaultConfig {
+        minSdk = libs.versions.minSdk.get().toInteger()
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += [
+                        "room.schemaLocation": "$projectDir/schemas",
+                        "room.incremental": "true"
+                ]
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    lint {
+        abortOnError = true
+        checkReleaseBuilds = true
+        warningsAsErrors = true
+        htmlReport = true
+        xmlReport = true
+        sarifReport = true
+    }
+
+    sourceSets {
+        androidTest.assets.srcDirs += files("$projectDir/schemas")
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+}
+
+dependencies {
+    api(project(":core:catalog"))
+    implementation(project(":core:network"))
+    implementation(libs.jackson.databind)
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler)
+
+    testImplementation(libs.junit4)
+    testImplementation(libs.okhttp.mockwebserver)
+    androidTestImplementation(libs.androidx.room.testing)
+    androidTestImplementation(libs.androidx.test.core)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+}
+
+apply from: rootProject.file("gradle/quality.gradle")
+
+jacoco {
+    toolVersion = libs.versions.jacoco.get()
+}
+
+tasks.withType(Test).configureEach {
+    useJUnit()
+    testLogging {
+        events("failed", "skipped")
+        exceptionFormat = "full"
+    }
+}
+
+def debugJavaClasses = layout.buildDirectory.dir(
+        "intermediates/javac/debug/compileDebugJavaWithJavac/classes")
+
+def jacocoDebugUnitTestReport = tasks.register(
+        "jacocoDebugUnitTestReport",
+        JacocoReport) {
+    group = "verification"
+    description = "Generates coverage for catalog data JVM unit tests."
+    dependsOn(tasks.named("testDebugUnitTest"))
+
+    sourceDirectories.from(files("src/main/java"))
+    classDirectories.from(debugJavaClasses.map { directory ->
+        fileTree(directory) {
+            exclude(
+                    '**/BuildConfig.*',
+                    '**/R.class',
+                    '**/R$*.class',
+                    '**/*_Impl.class')
+        }
+    })
+    executionData.from(layout.buildDirectory.file("jacoco/testDebugUnitTest.exec"))
+
+    reports {
+        xml.required = true
+        html.required = true
+        csv.required = false
+    }
+}
+
+tasks.named("check") {
+    dependsOn(jacocoDebugUnitTestReport)
+}

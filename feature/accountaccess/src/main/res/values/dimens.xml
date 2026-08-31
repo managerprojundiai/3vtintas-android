@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="account_access_screen_padding">20dp</dimen>
+    <dimen name="account_access_space_extra_small">4dp</dimen>
+    <dimen name="account_access_space_small">8dp</dimen>
+    <dimen name="account_access_space_medium">16dp</dimen>
+    <dimen name="account_access_card_radius">16dp</dimen>
+</resources>

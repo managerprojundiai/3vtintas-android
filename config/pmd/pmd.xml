@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<ruleset name="3V Tintas Android"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0
+                             https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+    <description>Baseline Java rules for the 3V Tintas Android application.</description>
+
+    <rule ref="category/java/bestpractices.xml">
+        <exclude name="GuardLogStatement"/>
+        <!-- Related contract fields should be asserted together in one scenario. -->
+        <exclude name="UnitTestContainsTooManyAsserts"/>
+    </rule>
+    <rule ref="category/java/errorprone.xml">
+        <exclude name="AvoidFieldNameMatchingMethodName"/>
+        <!-- Android instrumentation uses JUnit 4 by platform contract. -->
+        <exclude name="WrongTestAnnotation"/>
+    </rule>
+    <rule ref="category/java/performance.xml"/>
+    <rule ref="category/java/security.xml"/>
+</ruleset>

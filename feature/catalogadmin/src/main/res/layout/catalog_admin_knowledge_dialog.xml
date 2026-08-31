@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <EditText android:id="@+id/source_description" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/catalog_admin_source_description" android:importantForAutofill="no" android:inputType="textMultiLine" />
+        <EditText android:id="@+id/synonyms" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/catalog_admin_synonyms" android:importantForAutofill="no" android:inputType="textMultiLine" />
+        <EditText android:id="@+id/application" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/catalog_admin_application" android:importantForAutofill="no" android:inputType="textMultiLine" />
+        <EditText android:id="@+id/mode_of_use" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/catalog_admin_mode_of_use" android:importantForAutofill="no" android:inputType="textMultiLine" />
+        <EditText android:id="@+id/dilution" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/catalog_admin_dilution" android:importantForAutofill="no" android:inputType="textMultiLine" />
+        <EditText android:id="@+id/yield" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/catalog_admin_yield" android:importantForAutofill="no" android:inputType="textMultiLine" />
+        <EditText android:id="@+id/intents" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/catalog_admin_intents" android:importantForAutofill="no" android:inputType="textMultiLine" />
+        <EditText android:id="@+id/sales_argument" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/catalog_admin_sales_argument" android:importantForAutofill="no" android:inputType="textMultiLine" />
+        <EditText android:id="@+id/questions" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/catalog_admin_questions" android:importantForAutofill="no" android:inputType="textMultiLine" />
+        <EditText android:id="@+id/avoid_selling" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/catalog_admin_avoid_selling" android:importantForAutofill="no" android:inputType="textMultiLine" />
+        <EditText android:id="@+id/whatsapp_reply" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/catalog_admin_whatsapp_reply" android:importantForAutofill="no" android:inputType="textMultiLine" />
+    </LinearLayout>
+</ScrollView>

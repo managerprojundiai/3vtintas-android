@@ -1,0 +1,48 @@
+apply plugin: "checkstyle"
+apply plugin: "pmd"
+
+checkstyle {
+    toolVersion = libs.versions.checkstyle.get()
+    configFile = rootProject.file("config/checkstyle/checkstyle.xml")
+    maxWarnings = 0
+    maxErrors = 0
+}
+
+pmd {
+    toolVersion = libs.versions.pmd.get()
+    consoleOutput = true
+    ignoreFailures = false
+    ruleSetFiles = files(rootProject.file("config/pmd/pmd.xml"))
+    ruleSets = []
+}
+
+def javaSources = fileTree(project.projectDir) {
+    include("src/**/*.java")
+    exclude("**/build/**")
+}
+
+def checkstyleMobile = tasks.register("checkstyleMobile", Checkstyle) {
+    group = "verification"
+    description = "Checks all Java source files in this module."
+    source = javaSources
+    classpath = files()
+    reports {
+        xml.required = true
+        html.required = true
+    }
+}
+
+def pmdMobile = tasks.register("pmdMobile", Pmd) {
+    group = "verification"
+    description = "Runs PMD against all Java source files in this module."
+    source = javaSources
+    classpath = files()
+    reports {
+        xml.required = true
+        html.required = true
+    }
+}
+
+tasks.matching { it.name == "check" }.configureEach {
+    dependsOn(checkstyleMobile, pmdMobile)
+}

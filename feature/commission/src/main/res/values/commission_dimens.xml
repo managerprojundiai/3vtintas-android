@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="commission_screen_padding">16dp</dimen>
+    <dimen name="commission_space_extra_small">4dp</dimen>
+    <dimen name="commission_space_small">8dp</dimen>
+    <dimen name="commission_space_medium">16dp</dimen>
+    <dimen name="commission_space_large">24dp</dimen>
+    <dimen name="commission_card_radius">16dp</dimen>
+</resources>

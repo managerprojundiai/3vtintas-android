@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corporate_finance_back">Voltar</string>
+    <string name="corporate_finance_title">Financeiro corporativo</string>
+    <string name="corporate_finance_subtitle">Selecione o escopo autorizado</string>
+    <string name="corporate_finance_global">Abrir visão consolidada</string>
+    <string name="corporate_finance_search_hint">Buscar organização</string>
+    <string name="corporate_finance_open_organization">Abrir financeiro de %1$s</string>
+    <string name="corporate_finance_empty_title">Nenhuma organização encontrada</string>
+    <string name="corporate_finance_empty_message">Não há organizações autorizadas neste filtro.</string>
+    <string name="corporate_finance_error_title">Não foi possível carregar</string>
+    <string name="corporate_finance_retry">Tentar novamente</string>
+    <string name="corporate_finance_load_more">Carregar mais organizações</string>
+    <string name="corporate_finance_support_code">Código de suporte: %1$s</string>
+    <string name="corporate_finance_error_session">Sua sessão ou permissão mudou. Entre novamente.</string>
+    <string name="corporate_finance_error_forbidden">Seu perfil não pode acessar o financeiro corporativo.</string>
+    <string name="corporate_finance_error_network">Sem conexão. Verifique a internet e tente novamente.</string>
+    <string name="corporate_finance_error_rate">Muitas solicitações. Aguarde um instante e tente novamente.</string>
+    <string name="corporate_finance_error_update">Atualize o aplicativo para continuar.</string>
+    <string name="corporate_finance_error_service">O serviço financeiro está temporariamente indisponível.</string>
+    <string name="corporate_finance_error_generic">Não foi possível carregar as organizações com segurança.</string>
+</resources>

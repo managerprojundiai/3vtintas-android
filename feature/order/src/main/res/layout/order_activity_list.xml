@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/order_list_root"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.google.android.material.appbar.MaterialToolbar android:id="@+id/order_toolbar"
+        android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="?attr/actionBarSize"
+        android:navigationIcon="@drawable/order_ic_arrow_back" android:paddingHorizontal="@dimen/order_space_small"
+        app:navigationContentDescription="@string/order_back" app:title="@string/order_list_title"
+        app:subtitle="@string/order_list_subtitle" app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:orientation="vertical"
+        android:paddingHorizontal="@dimen/order_screen_padding" app:layout_constraintTop_toBottomOf="@id/order_toolbar"
+        app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/order_search_hint">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/order_search"
+                android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text"
+                android:imeOptions="actionSearch" android:maxLength="80" android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.chip.ChipGroup android:id="@+id/order_views"
+            android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/order_space_small"
+            app:selectionRequired="true" app:singleSelection="true">
+            <com.google.android.material.chip.Chip android:id="@+id/order_view_active" style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:text="@string/order_view_active" />
+            <com.google.android.material.chip.Chip android:id="@+id/order_view_history" style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/order_view_history" />
+            <com.google.android.material.chip.Chip android:id="@+id/order_view_all" style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/order_view_all" />
+        </com.google.android.material.chip.ChipGroup>
+        <com.google.android.material.progressindicator.LinearProgressIndicator android:id="@+id/order_progress"
+            android:layout_width="match_parent" android:layout_height="wrap_content" android:indeterminate="true" android:visibility="invisible" />
+        <com.google.android.material.card.MaterialCardView android:id="@+id/order_notice_card"
+            android:layout_width="match_parent" android:layout_height="wrap_content" android:visibility="gone"
+            app:cardElevation="0dp" app:cardBackgroundColor="?attr/colorTertiaryContainer">
+            <com.google.android.material.textview.MaterialTextView android:id="@+id/order_notice"
+                android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="@dimen/order_space_medium"
+                android:accessibilityLiveRegion="polite" />
+        </com.google.android.material.card.MaterialCardView>
+        <LinearLayout android:id="@+id/order_empty_group" android:layout_width="match_parent" android:layout_height="0dp"
+            android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:visibility="gone">
+            <com.google.android.material.textview.MaterialTextView android:id="@+id/order_empty_title"
+                style="@style/TextAppearance.Material3.TitleLarge" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:gravity="center" android:text="@string/order_empty_title" />
+            <com.google.android.material.textview.MaterialTextView android:id="@+id/order_empty_message"
+                style="@style/TextAppearance.Material3.BodyMedium" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/order_space_small" android:gravity="center" android:text="@string/order_empty_message" />
+            <com.google.android.material.button.MaterialButton android:id="@+id/order_retry"
+                android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/order_space_medium"
+                android:text="@string/order_retry" android:visibility="gone" />
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/order_list" android:layout_width="match_parent"
+            android:layout_height="0dp" android:layout_weight="1" android:clipToPadding="false"
+            android:paddingTop="@dimen/order_space_small" android:visibility="gone" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/order_load_more"
+            style="@style/Widget.Material3.Button.OutlinedButton" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/order_load_more" android:visibility="gone" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/order_refresh"
+            style="@style/Widget.Material3.Button.TextButton" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/order_refresh" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

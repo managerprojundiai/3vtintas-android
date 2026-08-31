@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.textfield.TextInputLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/agent_create_title_layout"
+    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/agent_space_medium"
+    android:layout_marginTop="@dimen/agent_space_small"
+    android:hint="@string/agent_create_dialog_hint"
+    app:counterEnabled="true"
+    app:counterMaxLength="120">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/agent_create_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:freezesText="false"
+        android:inputType="textCapSentences"
+        android:maxLength="120"
+        android:saveEnabled="false"
+        android:singleLine="true" />
+</com.google.android.material.textfield.TextInputLayout>

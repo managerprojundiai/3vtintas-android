@@ -1,0 +1,46 @@
+plugins {
+    id "java-library"
+    id "jacoco"
+    alias(libs.plugins.spotbugs)
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(libs.versions.java.get().toInteger())
+    }
+}
+
+dependencies {
+    api(project(":core:corporatefinance"))
+    api(project(":core:finance"))
+    implementation(project(":core:network"))
+    implementation(libs.jackson.databind)
+    testImplementation(libs.junit4)
+    testImplementation(libs.okhttp.mockwebserver)
+}
+
+apply from: rootProject.file("gradle/quality.gradle")
+
+jacoco {
+    toolVersion = libs.versions.jacoco.get()
+}
+
+tasks.withType(Test).configureEach {
+    useJUnit()
+}
+
+tasks.named("jacocoTestReport", JacocoReport) {
+    dependsOn(tasks.named("test"))
+    reports {
+        xml.required = true
+        html.required = true
+    }
+}
+
+tasks.withType(com.github.spotbugs.snom.SpotBugsTask).configureEach {
+    ignoreFailures = false
+    reports {
+        html.required = true
+        xml.required = false
+    }
+}

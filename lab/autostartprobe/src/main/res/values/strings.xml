@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">3V F7–03A Lab</string>
+    <string name="probe_title">Prova F7–03A</string>
+    <string name="probe_disclosure">Laboratório sintético. Este APK não solicita coordenadas, não envia dados e não é distribuído.</string>
+    <string name="probe_permissions">Solicitar permissões por etapa</string>
+    <string name="probe_immediate">Testar início com tela visível</string>
+    <string name="probe_schedule">Testar agendador comum em background</string>
+    <string name="probe_reset">Parar e limpar estado</string>
+    <string name="probe_state_template">Cenário: %1$s\nResultado: %2$s\nExceção: %3$s</string>
+    <string name="probe_permission_template">Localização precisa: %1$b\nBackground: %2$b\nNotificação: %3$b</string>
+    <string name="probe_channel_name">Prova de foreground service</string>
+    <string name="probe_notification_title">F7–03A ativo</string>
+    <string name="probe_notification_text">Teste sintético, sem leitura de coordenadas.</string>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="painter_admin_screen_padding">16dp</dimen>
+    <dimen name="painter_admin_space_small">8dp</dimen>
+    <dimen name="painter_admin_space_medium">16dp</dimen>
+</resources>

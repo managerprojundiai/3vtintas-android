@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="catalog_screen_padding">20dp</dimen>
+    <dimen name="catalog_card_padding">16dp</dimen>
+    <dimen name="catalog_card_radius">16dp</dimen>
+    <dimen name="catalog_space_extra_small">4dp</dimen>
+    <dimen name="catalog_space_small">8dp</dimen>
+</resources>

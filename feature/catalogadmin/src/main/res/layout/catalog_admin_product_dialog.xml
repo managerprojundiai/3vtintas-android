@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/catalog_admin_name"
+            android:importantForAutofill="no"
+            android:inputType="textCapWords"
+            android:maxLength="200" />
+
+        <Spinner
+            android:id="@+id/category"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/catalog_admin_category" />
+
+        <EditText
+            android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/catalog_admin_price_field"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal"
+            android:maxLength="11" />
+
+        <EditText
+            android:id="@+id/stock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/catalog_admin_stock"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="10" />
+
+        <EditText
+            android:id="@+id/sku"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/catalog_admin_sku"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="50" />
+
+        <EditText
+            android:id="@+id/brand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/catalog_admin_brand"
+            android:importantForAutofill="no"
+            android:inputType="textCapWords"
+            android:maxLength="100" />
+
+        <EditText
+            android:id="@+id/unit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/catalog_admin_unit"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="20" />
+
+        <EditText
+            android:id="@+id/volume"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/catalog_admin_volume"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="20" />
+
+        <EditText
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:hint="@string/catalog_admin_description"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            android:maxLines="4" />
+
+        <EditText
+            android:id="@+id/image_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/catalog_admin_image_url"
+            android:importantForAutofill="no"
+            android:inputType="textUri" />
+
+        <EditText
+            android:id="@+id/image_page_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/catalog_admin_image_page_url"
+            android:importantForAutofill="no"
+            android:inputType="textUri" />
+
+        <Button
+            android:id="@+id/knowledge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/catalog_admin_knowledge"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/change_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/validation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/catalog_admin_validation"
+            android:textColor="#B00020"
+            android:visibility="gone" />
+    </LinearLayout>
+</ScrollView>

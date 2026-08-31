@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="agenda_marker_appointment_color">#2563EB</color>
+    <color name="agenda_marker_delivery_color">#7C3AED</color>
+    <color name="agenda_marker_receivable_color">#15803D</color>
+    <color name="agenda_marker_payable_color">#D97706</color>
+    <color name="agenda_marker_expense_color">#DC2626</color>
+</resources>

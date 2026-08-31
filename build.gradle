@@ -1,0 +1,150 @@
+plugins {
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.spotbugs) apply false
+}
+
+// Dependency freshness is enforced by the repository dependency-audit gate.
+// Android Lint's network-backed version detector is intentionally disabled so
+// cached reports cannot make the same immutable source pass or fail depending
+// on repository metadata observed by a runner.
+subprojects {
+    pluginManager.withPlugin("com.android.application") {
+        android.lint.disable += "NewerVersionAvailable"
+    }
+    pluginManager.withPlugin("com.android.library") {
+        android.lint.disable += "NewerVersionAvailable"
+    }
+}
+
+def coverageGate = tasks.register("coverage") {
+    group = "verification"
+    description = "Generates XML and HTML coverage reports for tested Java modules."
+    dependsOn(
+        ":app:jacocoDebugUnitTestReport",
+        ":core:accountaccess:jacocoTestReport",
+        ":core:agent:jacocoTestReport",
+        ":core:attendance:jacocoTestReport",
+        ":core:appointment:jacocoTestReport",
+        ":core:auth:jacocoDebugUnitTestReport",
+        ":core:bootstrap:jacocoTestReport",
+        ":core:catalog:jacocoTestReport",
+        ":core:common:jacocoTestReport",
+        ":core:commission:jacocoTestReport",
+        ":core:corporatefinance:jacocoTestReport",
+        ":core:customer:jacocoTestReport",
+        ":core:delivery:jacocoTestReport",
+        ":core:finance:jacocoTestReport",
+        ":core:laborquote:jacocoTestReport",
+        ":core:model:jacocoTestReport",
+        ":core:notifications:jacocoTestReport",
+        ":core:network:jacocoTestReport",
+        ":core:order:jacocoTestReport",
+        ":core:quote:jacocoTestReport",
+        ":data:attendance:jacocoTestReport",
+        ":data:accountaccess:jacocoTestReport",
+        ":data:agent:jacocoTestReport",
+        ":data:appointment:jacocoTestReport",
+        ":data:catalog:jacocoDebugUnitTestReport",
+        ":data:commission:jacocoTestReport",
+        ":data:customer:jacocoTestReport",
+        ":data:delivery:jacocoTestReport",
+        ":data:finance:jacocoTestReport",
+        ":data:laborquote:jacocoTestReport",
+        ":data:order:jacocoTestReport",
+        ":data:notifications:jacocoTestReport",
+        ":data:quote:jacocoTestReport",
+        ":feature:attendance:jacocoDebugUnitTestReport",
+        ":feature:accountaccess:jacocoDebugUnitTestReport",
+        ":feature:agent:jacocoDebugUnitTestReport",
+        ":feature:appointment:jacocoDebugUnitTestReport",
+        ":feature:catalog:jacocoDebugUnitTestReport",
+        ":feature:commission:jacocoDebugUnitTestReport",
+        ":feature:corporatefinance:jacocoDebugUnitTestReport",
+        ":feature:customer:jacocoDebugUnitTestReport",
+        ":feature:delivery:jacocoDebugUnitTestReport",
+        ":feature:finance:jacocoDebugUnitTestReport",
+        ":feature:laborquote:jacocoDebugUnitTestReport",
+        ":feature:order:jacocoDebugUnitTestReport",
+        ":feature:notifications:jacocoDebugUnitTestReport",
+        ":feature:quote:jacocoDebugUnitTestReport",
+        ":feature:shell:jacocoTestReport",
+        ":platform:notifications:jacocoDebugUnitTestReport",
+        ":core:security:jacocoDebugUnitTestReport",
+        ":core:systemconfiguration:jacocoTestReport",
+        ":data:systemconfiguration:jacocoTestReport",
+        ":feature:systemconfiguration:jacocoDebugUnitTestReport"
+    )
+}
+
+tasks.register("quality") {
+    group = "verification"
+    description = "Runs every static-analysis and test gate for the Android foundation."
+    dependsOn(
+        coverageGate,
+        ":app:check",
+        ":core:accountaccess:check",
+        ":core:agent:check",
+        ":core:attendance:check",
+        ":core:appointment:check",
+        ":core:auth:check",
+        ":core:bootstrap:check",
+        ":core:catalog:check",
+        ":core:common:check",
+        ":core:commission:check",
+        ":core:corporatefinance:check",
+        ":core:customer:check",
+        ":core:delivery:check",
+        ":core:finance:check",
+        ":core:laborquote:check",
+        ":core:model:check",
+        ":core:notifications:check",
+        ":core:designsystem:check",
+        ":core:network:check",
+        ":core:order:check",
+        ":core:quote:check",
+        ":core:security:check",
+        ":core:systemconfiguration:check",
+        ":data:attendance:check",
+        ":data:accountaccess:check",
+        ":data:agent:check",
+        ":data:appointment:check",
+        ":data:catalog:check",
+        ":data:commission:check",
+        ":data:customer:check",
+        ":data:delivery:check",
+        ":data:finance:check",
+        ":data:laborquote:check",
+        ":data:order:check",
+        ":data:notifications:check",
+        ":data:quote:check",
+        ":data:systemconfiguration:check",
+        ":feature:attendance:check",
+        ":feature:accountaccess:check",
+        ":feature:agent:check",
+        ":feature:appointment:check",
+        ":feature:catalog:check",
+        ":feature:commission:check",
+        ":feature:corporatefinance:check",
+        ":feature:customer:check",
+        ":feature:delivery:check",
+        ":feature:finance:check",
+        ":feature:laborquote:check",
+        ":feature:order:check",
+        ":feature:notifications:check",
+        ":feature:quote:check",
+        ":feature:shell:check",
+        ":feature:systemconfiguration:check",
+        ":platform:notifications:check"
+    )
+}
+
+tasks.register("f703aQuality") {
+    group = "verification"
+    description = "Builds and verifies the isolated F7-03A auto-start probe."
+    dependsOn(
+        ":lab:autostartprobe:check",
+        ":lab:autostartprobe:assembleDebug",
+        ":lab:autostartprobe:assembleDebugAndroidTest"
+    )
+}
