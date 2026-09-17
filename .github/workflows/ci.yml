@@ -4,9 +4,25 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'app/**'
+      - 'gradle/**'
+      - 'build.gradle*'
+      - 'settings.gradle*'
+      - 'gradlew*'
+      - 'scripts/ci/**'
+      - '.github/workflows/ci.yml'
   pull_request:
     branches:
       - main
+    paths:
+      - 'app/**'
+      - 'gradle/**'
+      - 'build.gradle*'
+      - 'settings.gradle*'
+      - 'gradlew*'
+      - 'scripts/ci/**'
+      - '.github/workflows/ci.yml'
   workflow_dispatch:
 
 concurrency:
